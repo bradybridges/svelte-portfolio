@@ -2,5 +2,6 @@
 @import 'tailwindcss';
 
 html {
-	background: var(--color-gray-950)
+	background: var(--color-gray-950);
+	scroll-behavior: smooth;
 }
