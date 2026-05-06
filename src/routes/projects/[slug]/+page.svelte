@@ -18,6 +18,7 @@
 							url={data.project.url}
 							ariaLabel={`View ${data.project.name} live application`}
 							label="Live Application"
+							target="_blank"
 						/>
 					{/if}
 
@@ -26,6 +27,7 @@
 							url={data.project.githubUrl}
 							ariaLabel="Visit Github repository page"
 							label="Github Repository"
+							target="_blank"
 						/>
 					{/if}
 				</div>
@@ -71,7 +73,7 @@
 				{#if data.project.motivation}
 					<div class="my-12">
 						<Heading level={2} classes="mb-4">Motivation</Heading>
-						<p class="py-4 text-lg">{data.project.description}</p>
+						<p class="py-4 text-lg">{data.project.motivation}</p>
 					</div>
 				{/if}
 			</div>
