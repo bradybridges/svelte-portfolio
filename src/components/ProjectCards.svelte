@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { projects } from '$lib/projects';
+	import Link from './Link.svelte';
 </script>
 
 {#each projects as project}
@@ -45,6 +46,7 @@
 				<h3 class="mb-1 text-lg">{project.name}</h3>
 				<p class="text-xs">{project.description}</p>
 			</div>
+
 			<div>
 				<p class="mb-2 text-xs">Built With</p>
 				<div class="flex flex-wrap gap-2">
@@ -57,9 +59,7 @@
 			</div>
 
 			<div class="mt-4 flex w-full justify-center">
-				<a class="px-4 py-1 transition-colors hover:text-cyan-400" href={project.slug}
-					>Read More</a
-				>
+				<Link url={`/projects/${project.slug}`} classes="px-4 py-1" label="Read More" />
 			</div>
 		</div>
 	</div>

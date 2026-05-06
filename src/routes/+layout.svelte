@@ -1,6 +1,7 @@
 <script lang="ts">
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.svg';
+	import Link from '../components/Link.svelte';
 
 	let { children } = $props();
 </script>
@@ -14,10 +15,14 @@
 	<header
 		class="sticky top-0 z-10 flex items-center justify-between border-b border-b-cyan-400 bg-gray-950/95 p-4"
 	>
-		<div class="rounded bg-cyan-500 p-2">
+		<a href="/" class="rounded bg-cyan-500 p-2">
 			<span class="font-semibold text-white uppercase">BB Dev</span>
-		</div>
-		<nav class="flex gap-3"><a href="/">Link</a><a href="/">Link</a></nav>
+		</a>
+
+		<nav class="flex gap-3 mr-4">
+			<Link url="#projects" label="Projects" ariaLabel="Scroll to projects section" />
+			<Link url="#contact" label="Contact" ariaLabel="Scroll to contact form" />
+		</nav>
 	</header>
 
 	<main class="mx-auto min-h-screen max-w-360">{@render children()}</main>
