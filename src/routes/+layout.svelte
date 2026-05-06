@@ -4,7 +4,7 @@
 	import linkedin from '$lib/assets/linkedin.svg';
 	import Link from '../components/Link.svelte';
 
-	let { children } = $props();
+	let { children, params } = $props();
 </script>
 
 <svelte:head>
@@ -16,13 +16,23 @@
 	<header
 		class="sticky top-0 z-10 flex items-center justify-between border-b border-b-cyan-400 bg-gray-950/95 p-4"
 	>
-		<a href="/" class="rounded bg-cyan-500 p-2">
-			<span class="font-semibold text-white uppercase">BB Dev</span>
-		</a>
+		<span class="flex flex-col gap-1">
+			<a href="/" class="rounded bg-cyan-500 p-1">
+				<span class="font-semibold text-white uppercase">Brady Bridges</span>
+			</a>
 
-		<nav class="flex gap-3 mr-4">
-			<Link url="#projects" label="Projects" ariaLabel="Scroll to projects section" />
-			<Link url="#contact" label="Contact" ariaLabel="Scroll to contact form" />
+			<span class="rounded border border-cyan-400 text-center text-xs shadow shadow-cyan-400/33">Frontend Engineer</span
+			>
+		</span>
+
+		<nav class="mr-4 flex gap-3">
+			{#if params.slug}
+				<Link url="/" label="Go to home page" ariaLabel="Navigate to home page" />
+			{:else}
+				<Link url="#experience" label="Experience" ariaLabel="Scroll to experience section" />
+				<Link url="#projects" label="Projects" ariaLabel="Scroll to projects section" />
+				<Link url="#contact" label="Contact" ariaLabel="Scroll to contact form" />
+			{/if}
 		</nav>
 	</header>
 

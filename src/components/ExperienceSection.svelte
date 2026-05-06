@@ -4,7 +4,7 @@
 	import Section from './Section.svelte';
 </script>
 
-<Section>
+<Section id="experience">
 	<div class="flex flex-col gap-8">
 		<Heading level={3}>
 			Professional Experience
