@@ -10,4 +10,4 @@
 <StatusSection />
 <ExperienceSection />
 <ProjectsSection />
-<ContactForm />
+<!-- <ContactForm /> -->
