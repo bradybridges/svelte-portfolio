@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { roles } from '$lib/roles';
 	import Heading from './Heading.svelte';
+	import Link from './Link.svelte';
 	import Section from './Section.svelte';
 </script>
 
@@ -24,12 +25,12 @@
 							<div>
 								<div class="mb-1 text-left font-semibold md:text-right">
 									{#if role.companyUrl}
-										<a
-											href={role.companyUrl}
+										<Link
+											url={role.companyUrl}
 											target="_blank"
-											aria-label={`Visit ${role.company} page`}
-											>{role.company}</a
-										>
+											ariaLabel={`Visit ${role.company} website`}
+											label={role.companyUrl}
+										/>
 									{:else}
 										{role.company}
 									{/if}
