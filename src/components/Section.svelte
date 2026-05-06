@@ -3,6 +3,9 @@
 	let { children, ...attributes }: SvelteHTMLElements['section'] = $props();
 </script>
 
-<section class={['mt-6 mb-12 md:mb-24 px-4 md:px-12 lg:px-24 py-4', attributes.class]}>
+<section
+	id={attributes?.id ? attributes.id : null}
+	class={['mt-6 mb-12 px-4 py-4 md:mb-24 md:px-12 lg:px-24', attributes.class]}
+>
 	{@render children?.()}
 </section>
