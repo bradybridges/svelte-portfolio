@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { enhance } from "$app/forms";
+	import Heading from "./Heading.svelte";
 	import Section from './Section.svelte';
 
 	let email = $state('');
@@ -7,8 +8,8 @@
 	let success = $state(false);
 </script>
 
-<Section class="flex flex-col items-center justify-center">
-	<h2 class="mb-8 text-3xl text-cyan-500">Get In Touch</h2>
+<Section id="contact" class="flex flex-col items-center justify-center">
+	<Heading level={2} classes="mb-8 text-3xl text-cyan-500">Get In Touch</Heading>
 
 	{#if success}
 		<p class="text-cyan-400">Thanks for reaching out!</p>

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import headshot from '$lib/assets/Brady Bridges.jpg';
+	import Heading from './Heading.svelte';
 	import Section from './Section.svelte';
 </script>
 
@@ -12,7 +13,10 @@
 		</div>
 
 		<div class="flex w-full flex-col items-center justify-center gap-2 p-8 lg:p-0">
-			<h2 class="text-3xl">Hi, I'm Brady!</h2>
+			<Heading level={2}>
+				Hi, I'm Brady!
+			</Heading>
+
 			<p class="p-4">
 				Senior Frontend Engineer with 6+ years of experience building scalable,
 				high-performance web applications using React and TypeScript. Proven track record of

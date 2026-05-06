@@ -1,11 +1,14 @@
 <script lang="ts">
 	import { roles } from '$lib/roles';
+	import Heading from './Heading.svelte';
 	import Section from './Section.svelte';
 </script>
 
 <Section>
 	<div class="flex flex-col gap-8">
-		<h2 class="text-3xl">Professional Experience</h2>
+		<Heading level={3}>
+			Professional Experience
+		</Heading>
 
 		{#each roles as role}
 			<div class="rounded bg-gray-900 p-4 border border-cyan-400/50">
