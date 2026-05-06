@@ -6,19 +6,62 @@
 	let hasLinks = $derived(data.project.githubUrl || data.project.url ? true : false);
 </script>
 
+{#snippet details(classes: string)}
+	<div class={['lg:basis-1/4', classes]}>
+		<div class="mb-4 rounded border border-gray-700 bg-gray-900 p-4">
+			<Heading level={3} classes="mb-4 text-xl">Links</Heading>
+
+			{#if hasLinks}
+				<div class="flex flex-col gap-2">
+					{#if data.project.url && data.project.url !== data.project.githubUrl}
+						<Link
+							url={data.project.url}
+							ariaLabel={`View ${data.project.name} live application`}
+							label="Live Application"
+						/>
+					{/if}
+
+					{#if data.project.githubUrl}
+						<Link
+							url={data.project.githubUrl}
+							ariaLabel="Visit Github repository page"
+							label="Github Repository"
+						/>
+					{/if}
+				</div>
+			{/if}
+		</div>
+
+		<div class="rounded border border-gray-700 bg-gray-900 p-4">
+			<Heading level={3} classes="mb-4 text-xl">Built With</Heading>
+
+			<div class="flex flex-wrap gap-2">
+				{#each data.project.badges as badge}
+					<span class="text-s rounded-full border border-cyan-400/50 bg-gray-800 px-3"
+						>{badge}</span
+					>
+				{/each}
+			</div>
+		</div>
+	</div>
+{/snippet}
+
 <Section>
 	<div>
 		<Heading level={1} classes="mb-8">{data.project.name}</Heading>
 
-		<div class="flex gap-4">
-			<div class="basis-3/4">
-				<div class="mb-16 overflow-hidden rounded border border-gray-700">
+		<div class="flex flex-col gap-4 lg:flex-row">
+			<div class="lg:basis-3/4">
+				<div class="mb-4 overflow-hidden rounded border border-gray-700 lg:mb-16">
 					<img
-						class="h-100 w-full object-cover object-center"
+						class="none h-100 w-full object-cover object-center"
 						src={data.project.image}
 						alt={`${data.project.name} thumbnail`}
 					/>
 				</div>
+
+				<!-- Mobile details -->
+				{@render details('lg:hidden')}
 
 				<div class="my-12">
 					<Heading level={2} classes="mb-4">Description</Heading>
@@ -33,44 +76,8 @@
 				{/if}
 			</div>
 
-			<div class="basis-1/4">
-				<div class="mb-4 rounded border border-gray-700 bg-gray-900 p-4">
-					<Heading level={3} classes="mb-4 text-xl">Links</Heading>
-
-					{#if hasLinks}
-						<div class="flex flex-col gap-2">
-							{#if data.project.url && data.project.url !== data.project.githubUrl}
-								<Link
-									url={data.project.url}
-									ariaLabel={`View ${data.project.name} live application`}
-									label="Live Application"
-								/>
-							{/if}
-
-							{#if data.project.githubUrl}
-								<Link
-									url={data.project.githubUrl}
-									ariaLabel="Visit Github repository page"
-									label="Github Repository"
-								/>
-							{/if}
-						</div>
-					{/if}
-				</div>
-
-				<div class="rounded border border-gray-700 bg-gray-900 p-4">
-					<Heading level={3} classes="mb-4 text-xl">Built With</Heading>
-
-					<div class="flex flex-wrap gap-2">
-						{#each data.project.badges as badge}
-							<span
-								class="rounded-full border border-cyan-400/50 bg-gray-800 px-3 text-s"
-								>{badge}</span
-							>
-						{/each}
-					</div>
-				</div>
-			</div>
+			<!-- Desktop details -->
+			{@render details('hidden lg:block')}
 		</div>
 	</div>
 </Section>
