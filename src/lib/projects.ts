@@ -39,7 +39,7 @@ export const projects: ProjectType[] = [
 	{
 		name: 'Rocket Launch Visualizer',
 		description:
-			"I am a rocket nerd and was learning about how rockets get to orbit as efficiently as possible. I wanted to build a simple chart to visualize how various launch and orbital parameters affect the viability and effeciency of a rocket's flight path.",
+			"Getting a rocket to orbit isn't just about going up, it's about going fast in exactly the right direction at exactly the right time. This interactive visualizer lets you manipulate launch and orbital parameters and watch in real time how each decision shapes a flight path's viability and efficiency. A must-try for Kerbal Space Program veterans and rocket enthusiasts alike.",
 		url: 'https://launch.bbdev.cloud',
 		githubUrl: 'https://github.com/bradybridges/rocket-launch-visualizer',
 		slug: 'rocket-launch',
@@ -50,7 +50,7 @@ export const projects: ProjectType[] = [
 	{
 		name: 'Websocket Chat',
 		description:
-			"I wanted to learn more about websockets and how they work, I'm also a sucker for terminal based applications. So I built an E2E encrypted terminal-based chat application that can be self-hosted using Docker. Users connect with an installable NPM package.",
+			"End-to-end encrypted, self-hostable, and entirely terminal-native. This chat application cuts out the browser and the bloat, letting users communicate securely through a lightweight NPM package from the comfort of their own terminal. Built on WebSockets and deployable in minutes with Docker.",
 		url: 'https://github.com/bradybridges/websocket-chat',
 		githubUrl: 'https://github.com/bradybridges/websocket-chat',
 		slug: 'websocket-chat',
@@ -61,7 +61,7 @@ export const projects: ProjectType[] = [
 	{
 		name: 'Todo CLI',
 		description:
-			"Slack pings and side tasks kept pulling me away from my terminal. I wanted to add a CLI based todo tool to my workflow, but couldn't find any that looked good and were simple to use. So I built one. I don't expect this to impress you, but it's a tool I use daily to keep track of tasks without distracting myself from the task at hand.",
+			"Constant context-switching was killing my focus. Slack notifications, impromptu requests, tasks piling up with nowhere clean to put them. Every existing CLI todo tool I tried was either bloated, ugly, or both. So I built exactly what I needed: a distraction-free, terminal-native task manager that lets me log tasks without ever leaving my terminal or opening a separate application. No alt-tabbing, no app switching, just a quick command and I'm back to what I was doing. It's not flashy, but it's the kind of tool that quietly earns its place. I've used it every day since.",
 		url: 'https://github.com/bradybridges/todo-cli',
 		githubUrl: 'https://github.com/bradybridges/todo-cli',
 		slug: 'todo-cli',
