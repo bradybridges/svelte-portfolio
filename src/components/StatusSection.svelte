@@ -10,9 +10,23 @@
 		<div class="flex flex-col items-start justify-center gap-6">
 			<Heading level={2}>Status</Heading>
 
-			<div class="text-lg">
-				Recruitment Status:
-				<span class="ml-2 inline-block pb-1 font-bold text-emerald-400">Open To Work</span>
+			<div class="flex flex-col gap-4">
+				<div class="text-xl">
+					Recruitment Status:
+					<span class="ml-2 inline-block font-bold text-emerald-400 text-xl underline underline-offset-4">Open To Work</span>
+				</div>
+				<div class="text-xl">
+					Location:
+					<span class="ml-2 inline-block font-bold">Minnesota</span>
+				</div>
+				<div class="text-xl">
+					Current Company:
+					<span class="ml-2 inline-block font-bold">Athos Commerce</span>
+				</div>
+				<div class="text-xl">
+					Current Role:
+					<span class="ml-2 inline-block font-bold">Front End Engineer III</span>
+				</div>
 			</div>
 		</div>
 	</div>
