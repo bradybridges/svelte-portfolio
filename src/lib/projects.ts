@@ -6,6 +6,7 @@ type ProjectType = {
 	image: string;
 	badges: string[];
 	githubUrl?: string;
+	motivation?: string;
 	position?: 'top' | 'center' | 'bottom';
 };
 
@@ -19,10 +20,21 @@ export const projects: ProjectType[] = [
 		name: 'EasyRef',
 		description:
 			'Referral and analytics tracking platform that lets users monitor traffic sources and measure link effectiveness without any client-side integration. Users create trackers with unique short codes and share the generated redirect URL; when a visitor clicks the link, EasyRef records the view and redirects them to the target site. Built on a Node.js/Express REST API with a Preact/TypeScript frontend, the platform gives users a clean dashboard to manage sites, trackers, and view counts across their web properties.',
+		motivation:
+			"I built EasyRef because I kept sending out job applications and sharing side projects with no idea what happened after I hit send. Did anyone actually click the GitHub link in my resume? Did a recruiter look at my portfolio? I was flying blind, and every analytics tool I found assumed I was running a marketing campaign, dashboards full of funnels, conversion goals, and UTM parameters I didn't need. EasyRef is intentionally private. There's no public signup, no third-party script to audit, no SDK to drop into someone else's codebase. I just wanted a quiet tool for myself, something I could trust to be accurate without worrying about data sharing or account tiers. When you're sending a resume, the last thing you want is your tracking infrastructure phoning home to a venture-backed SaaS.",
 		url: 'https://easyref.bbdev.cloud',
 		slug: 'easy-ref',
 		image: easyref,
-		badges: ['React', 'Typescript', 'Node', 'Express', 'Auth0', 'Redux Toolkit', 'PosgresSQL', 'Vitest']
+		badges: [
+			'React',
+			'Typescript',
+			'Node',
+			'Express',
+			'Auth0',
+			'Redux Toolkit',
+			'PosgresSQL',
+			'Vitest'
+		]
 	},
 	{
 		name: 'Rocket Launch Visualizer',
