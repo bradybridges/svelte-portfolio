@@ -5,7 +5,18 @@
 	import Link from '../components/Link.svelte';
 
 	let { children, params } = $props();
+
+	let lastScrollY = $state(0);
+	let hidden = $state(false);
+
+	function onScroll() {
+		const currentY = window.scrollY;
+		hidden = currentY > 80 && currentY > lastScrollY;
+		lastScrollY = currentY;
+	}
 </script>
+
+<svelte:window onscroll={onScroll} />
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
@@ -14,7 +25,8 @@
 
 <div class="text-gray-300">
 	<header
-		class="sticky top-0 z-10 flex items-center justify-between border-b border-b-cyan-400 bg-gray-950/95 p-4"
+		class={["sticky top-0 z-10 flex items-center justify-between border-b border-b-cyan-400 bg-gray-950/95 p-4 transition-transform duration-300", hidden && '-translate-y-full']}
+		class:header-hidden={hidden}
 	>
 		<span class="flex flex-col gap-1">
 			<a href="/" class="rounded bg-cyan-500 p-1">
