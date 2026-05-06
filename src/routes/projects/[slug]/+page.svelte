@@ -64,7 +64,7 @@
 					<div class="flex flex-wrap gap-2">
 						{#each data.project.badges as badge}
 							<span
-								class="rounded-full border border-cyan-400/50 bg-gray-800 px-3 text-xs"
+								class="rounded-full border border-cyan-400/50 bg-gray-800 px-3 text-s"
 								>{badge}</span
 							>
 						{/each}
