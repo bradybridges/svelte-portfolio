@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { projects } from '$lib/projects';
+	import Link from './Link.svelte';
 </script>
 
 {#each projects as project}
@@ -12,7 +13,7 @@
 	<div
 		class="flex basis-full flex-col overflow-hidden rounded-xl border border-gray-800 bg-gray-900 md:basis-[calc(50%-24px)] lg:basis-[calc(33%-24px)]"
 	>
-		<a href={project.url} class="mb-2 border-b border-b-cyan-400 pb-4" target="_blank">
+		<a href={project.url} class="mb-2 border-b border-b-emerald-400 pb-4" target="_blank">
 			<img class={imageClasses} src={project.image} alt="EasyRef" />
 		</a>
 		<div class="flex flex-col items-start gap-4 px-2 py-3">
@@ -41,11 +42,12 @@
 				</a>
 			{/if}
 
-			<div>
+			<div class="w-full">
 				<h3 class="mb-1 text-lg">{project.name}</h3>
 				<p class="text-xs">{project.description}</p>
 			</div>
-			<div>
+
+			<div class="w-full">
 				<p class="mb-2 text-xs">Built With</p>
 				<div class="flex flex-wrap gap-2">
 					{#each project.badges as badge}
@@ -57,9 +59,7 @@
 			</div>
 
 			<div class="mt-4 flex w-full justify-center">
-				<a class="px-4 py-1 transition-colors hover:text-cyan-400" href={project.slug}
-					>Read More</a
-				>
+				<Link url={`/projects/${project.slug}`} classes="px-4 py-1" label="Read More" />
 			</div>
 		</div>
 	</div>

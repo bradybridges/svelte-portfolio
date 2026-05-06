@@ -8,6 +8,6 @@
 
 <HeroSection />
 <StatusSection />
-<ProjectsSection />
 <ExperienceSection />
-<ContactForm />
+<ProjectsSection />
+<!-- <ContactForm /> -->
