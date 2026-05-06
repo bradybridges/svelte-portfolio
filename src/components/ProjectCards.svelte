@@ -13,7 +13,14 @@
 	<div
 		class="flex basis-full flex-col overflow-hidden rounded-xl border border-gray-800 bg-gray-900 md:basis-[calc(50%-24px)] lg:basis-[calc(33%-24px)]"
 	>
-		<a href={project.url} class="mb-2 border-b border-b-emerald-400 pb-4" target="_blank">
+		<a
+			href={project.url}
+			class="mb-2 border-b border-b-emerald-400 pb-4"
+			target="_blank"
+			aria-label="Visit {project.name} {project.url.includes('github')
+				? 'Github repository'
+				: 'live site'}"
+		>
 			<img class={imageClasses} src={project.image} alt="EasyRef" />
 		</a>
 		<div class="flex flex-col items-start gap-4 px-2 py-3">
@@ -22,7 +29,6 @@
 					href={project.githubUrl}
 					target="_blank"
 					aria-label={`Visit ${project.name} GitHub page`}
-					title={`Visit ${project.name} GitHub page`}
 				>
 					<svg
 						aria-hidden="true"
