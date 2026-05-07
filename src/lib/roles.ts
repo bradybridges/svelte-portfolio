@@ -15,8 +15,8 @@ export const roles: RolesType[] = [
 		start: '5/1/25',
 		end: 'Current',
 		bullets: [
-			'Built and maintained CI/CD pipelines using GitHub Actions and Cypress, reducing runtime errors by ~50% and significantly decreasing production defects',
-			'Developed internal CLI tooling to automate project initialization, reducing setup time and standardizing configurations across teams',
+			'Architected reusable frontend components and shared UI patterns, reducing duplicated code and accelerating feature delivery across multiple projects',
+			'Improved frontend application performance through bundle optimization, lazy loading, and rendering improvements, resulting in faster page load times and improved user engagement',
 			'Led technical planning and execution for frontend initiatives, translating product requirements into scalable engineering solutions',
 			'Conducted code reviews to enforce best practices, improve code quality, and reduce defects prior to release'
 		]
