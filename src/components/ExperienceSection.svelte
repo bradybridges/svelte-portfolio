@@ -17,7 +17,7 @@
 					<span class="absolute top-0 left-0 h-3 w-3 rounded-full bg-cyan-400"></span>
 					<span class="absolute bottom-0 left-0 h-3 w-3 rounded-full bg-cyan-400"></span>
 
-					<div class="mb-8 w-full">
+					<div class="mb-4 lg:mg-8 w-full">
 						<div
 							class="flex w-full flex-col items-start justify-between md:flex-row md:items-center"
 						>
@@ -29,7 +29,7 @@
 											url={role.companyUrl}
 											target="_blank"
 											ariaLabel={`Visit ${role.company} website`}
-											label={role.companyUrl}
+											label={role.company}
 										/>
 									{:else}
 										{role.company}

@@ -1,6 +1,5 @@
 <script lang="ts">
 	import './layout.css';
-	import favicon from '$lib/assets/favicon.svg';
 	import linkedin from '$lib/assets/linkedin.svg';
 	import Link from '../components/Link.svelte';
 
@@ -17,11 +16,6 @@
 </script>
 
 <svelte:window onscroll={onScroll} />
-
-<svelte:head>
-	<link rel="icon" href={favicon} />
-	<title>Brady Bridges | Portfolio</title>
-</svelte:head>
 
 <div class="text-gray-300">
 	<header
