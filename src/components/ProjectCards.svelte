@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { projects } from '$lib/projects';
+	import Heading from './Heading.svelte';
 	import Link from './Link.svelte';
 </script>
 
@@ -11,24 +12,26 @@
 		project.position && `object-${project.position}`
 	]}
 	<div
-		class="flex basis-full flex-col overflow-hidden rounded-xl border border-gray-800 bg-gray-900 md:basis-[calc(50%-24px)] lg:basis-[calc(33%-24px)]"
+		class="flex basis-full h-auto flex-col overflow-hidden rounded-xl border border-gray-800 bg-gray-900 md:basis-[calc(50%-24px)] lg:basis-[calc(33%-24px)]"
 	>
-		<a
-			href={project.url}
-			class="mb-2 border-b border-b-emerald-400 pb-4"
-			target="_blank"
-			aria-label="Visit {project.name} {project.url.includes('github')
-				? 'Github repository'
-				: 'live site'}"
-		>
-			<img class={imageClasses} src={project.image} alt="EasyRef" />
-		</a>
-		<div class="flex flex-col items-start gap-4 px-2 py-3">
+		<div class="relative">
+			<a
+				href={project.url}
+				class="mb-2 border-b border-b-emerald-400 pb-4"
+				target="_blank"
+				aria-label="Visit {project.name} {project.url.includes('github')
+					? 'Github repository'
+					: 'live site'}"
+			>
+				<img class={imageClasses} src={project.image} alt="EasyRef" />
+			</a>
+
 			{#if project.githubUrl}
 				<a
 					href={project.githubUrl}
 					target="_blank"
 					aria-label={`Visit ${project.name} GitHub page`}
+					class="absolute right-2 top-2 bg-black rounded-full"
 				>
 					<svg
 						aria-hidden="true"
@@ -47,25 +50,32 @@
 					>
 				</a>
 			{/if}
+		</div>
 
+		<div class="flex flex-col h-full items-start gap-4 p-4">
 			<div class="w-full">
-				<h3 class="mb-1 text-lg">{project.name}</h3>
-				<p class="text-xs">{project.description}</p>
+				<Heading level={3} classes="mb-2 text-emerald-400">{project.name}</Heading>
+				<p class="text-s line-clamp-5">{project.description}</p>
 			</div>
 
-			<div class="w-full">
-				<p class="mb-2 text-xs">Built With</p>
+			<div class="w-full mb-4">
+				<Heading level={4} classes="mb-4">Built With</Heading>
 				<div class="flex flex-wrap gap-2">
 					{#each project.badges as badge}
-						<span class="rounded-full border border-gray-500 bg-gray-800 px-3 text-xs"
+						<span class="text-s rounded-full border border-gray-500 bg-gray-800 px-3"
 							>{badge}</span
 						>
 					{/each}
 				</div>
 			</div>
 
-			<div class="mt-4 flex w-full justify-center">
-				<Link url={`/projects/${project.slug}`} classes="px-4 py-1" label="Read More" />
+			<div class="mt-auto flex w-full justify-center">
+				<a
+					href={`/projects/${project.slug}`}
+					class="text-s min-w-32 cursor-pointer rounded border border-emerald-400 px-4 py-1 text-center font-semibold text-gray-300 hover:animate-pulse hover:text-emerald-400 disabled:opacity-50"
+				>
+					Read More
+				</a>
 			</div>
 		</div>
 	</div>
