@@ -1,10 +1,15 @@
 <script lang="ts">
+	import favicon from '$lib/assets/favicon.svg';
 	import Heading from '../../../components/Heading.svelte';
 	import Link from '../../../components/Link.svelte';
 	import Section from '../../../components/Section.svelte';
 	let { data } = $props();
 	let hasLinks = $derived(data.project.githubUrl || data.project.url ? true : false);
 </script>
+
+<svelte:head>
+	<title>Brady Bridges | {data.project.name}</title>
+</svelte:head>
 
 {#snippet details(classes: string)}
 	<div class={['lg:basis-1/4', classes]}>
