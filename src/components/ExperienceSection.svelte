@@ -29,7 +29,7 @@
 											url={role.companyUrl}
 											target="_blank"
 											ariaLabel={`Visit ${role.company} website`}
-											label={role.companyUrl}
+											label={role.company}
 										/>
 									{:else}
 										{role.company}
