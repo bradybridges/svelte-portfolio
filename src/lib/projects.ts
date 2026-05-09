@@ -5,8 +5,10 @@ type ProjectType = {
 	slug: string;
 	image: string;
 	badges: string[];
+	customLink?: { label: string, url: string };
 	githubUrl?: string;
 	motivation?: string;
+	technical?: string;
 	position?: 'top' | 'center' | 'bottom';
 };
 
@@ -22,6 +24,8 @@ export const projects: ProjectType[] = [
 			'Referral and analytics tracking platform that lets users monitor traffic sources and measure link effectiveness without any client-side integration. Users create trackers with unique short codes and share the generated redirect URL; when a visitor clicks the link, EasyRef records the view and redirects them to the target site. Built on a Node.js/Express REST API with a Preact/TypeScript frontend, the platform gives users a clean dashboard to manage sites, trackers, and view counts across their web properties.',
 		motivation:
 			"I built EasyRef because I kept sending out job applications and sharing side projects with no idea what happened after I hit send. Did anyone actually click the GitHub link in my resume? Did a recruiter look at my portfolio? I was flying blind, and every analytics tool I found assumed I was running a marketing campaign, dashboards full of funnels, conversion goals, and UTM parameters I didn't need. EasyRef is intentionally private. There's no public signup, no third-party script to audit, no SDK to drop into someone else's codebase. I just wanted a quiet tool for myself, something I could trust to be accurate without worrying about data sharing or account tiers. When you're sending a resume, the last thing you want is your tracking infrastructure phoning home to a venture-backed SaaS.",
+		technical:
+			"Keeping campaigns, trackers, and views synchronized, while also limiting excessive network requests presented a challenge in this project. Not only did I want to to limit uneccessary requests to the backend, but it was also important to keep user experience seamless and snappy. For this I used Redux Toolkit, which comes with all the solutions I needed out of the box. By leveraging Redux, I was able to define the shape of the state of the application and APIs providing providing an organized, declarative structure to the application. With built in caching mechanisms, react-query integration, and global state management, Redux saved me from reinventing the wheel. This tool provides robust functionality to manage and manipulate data across the application, leaving users with an application that loads quickly, caches data effectively, and gets data where it's needed efficiently.",
 		url: 'https://easyref.bbdev.cloud',
 		slug: 'easy-ref',
 		image: easyref,
@@ -50,12 +54,12 @@ export const projects: ProjectType[] = [
 	{
 		name: 'Websocket Chat',
 		description:
-			"End-to-end encrypted, self-hostable, and entirely terminal-native. This chat application cuts out the browser and the bloat, letting users communicate securely through a lightweight NPM package from the comfort of their own terminal. Built on WebSockets and deployable in minutes with Docker.",
+			'End-to-end encrypted, self-hostable, and entirely terminal-native. This chat application cuts out the browser and the bloat, letting users communicate securely through a lightweight NPM package from the comfort of their own terminal. Built on WebSockets and deployable in minutes with Docker.',
 		url: 'https://github.com/bradybridges/websocket-chat',
 		githubUrl: 'https://github.com/bradybridges/websocket-chat',
 		slug: 'websocket-chat',
 		image: wschat,
-		badges: ['Node', 'Websockets', 'Docker', 'NPM Package'],
+		badges: ['Node', 'Websockets', 'Docker', 'Crypto'],
 		position: 'top'
 	},
 	{
@@ -64,9 +68,10 @@ export const projects: ProjectType[] = [
 			"Constant context-switching was killing my focus. Slack notifications, impromptu requests, tasks piling up with nowhere clean to put them. Every existing CLI todo tool I tried was either bloated, ugly, or both. So I built exactly what I needed: a distraction-free, terminal-native task manager that lets me log tasks without ever leaving my terminal or opening a separate application. No alt-tabbing, no app switching, just a quick command and I'm back to what I was doing. It's not flashy, but it's the kind of tool that quietly earns its place. I've used it every day since.",
 		url: 'https://github.com/bradybridges/todo-cli',
 		githubUrl: 'https://github.com/bradybridges/todo-cli',
+		customLink: { label: 'Available on NPM', url: 'https://www.npmjs.com/package/@bradyjbridges/todo-cli' },
 		slug: 'todo-cli',
 		image: todocli,
-		badges: ['NPM', 'CLI Tool', 'NPM Registry', 'Github Actions'],
+		badges: ['NPM', 'CLI Tool', 'Github Actions', 'Chalk', 'Commander'],
 		position: 'top'
 	}
 ];

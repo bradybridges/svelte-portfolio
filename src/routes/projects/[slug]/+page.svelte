@@ -35,6 +35,15 @@
 							target="_blank"
 						/>
 					{/if}
+
+					{#if data.project.customLink}
+						<Link
+							url={data.project.customLink.url}
+							ariaLabel={data.project.customLink.label}
+							label={data.project.customLink.label}
+							target="_blank"
+						/>
+					{/if}
 				</div>
 			{/if}
 		</div>
@@ -79,6 +88,13 @@
 					<div class="my-12">
 						<Heading level={2} classes="mb-4">Motivation</Heading>
 						<p class="py-4 text-lg">{data.project.motivation}</p>
+					</div>
+				{/if}
+
+				{#if data.project.technical}
+					<div class="my-12">
+						<Heading level={2} classes="mb-4">Technical Challenge</Heading>
+						<p class="py-4 text-lg">{data.project.technical}</p>
 					</div>
 				{/if}
 			</div>
