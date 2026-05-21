@@ -7,7 +7,7 @@
 
 <Section id="experience">
 	<div class="flex flex-col gap-8">
-		<Heading level={3}>
+		<Heading level={2}>
 			Professional Experience
 		</Heading>
 
