@@ -23,6 +23,7 @@
 							ariaLabel={`View ${data.project.name} live application`}
 							label="Live Application"
 							target="_blank"
+							showIcon={true}
 						/>
 					{/if}
 
@@ -32,6 +33,7 @@
 							ariaLabel="Visit Github repository page"
 							label="Github Repository"
 							target="_blank"
+							showIcon={true}
 						/>
 					{/if}
 
@@ -41,6 +43,7 @@
 							ariaLabel={data.project.customLink.label}
 							label={data.project.customLink.label}
 							target="_blank"
+							showIcon={true}
 						/>
 					{/if}
 				</div>
