@@ -27,7 +27,7 @@
 <div class="text-gray-300">
 	<header
 		class={[
-			'sticky top-0 z-10 flex flex-col md:flex-row items-center gap-6 md:gap-0 justify-between border-b border-b-cyan-400 bg-gray-950/95 p-4 transition-transform duration-300',
+			'sticky top-0 z-10 flex flex-col items-center justify-between gap-6 border-b border-b-cyan-400 bg-gray-950/95 p-4 transition-transform duration-300 md:flex-row md:gap-0',
 			hidden && '-translate-y-full'
 		]}
 		class:header-hidden={hidden}
@@ -44,7 +44,7 @@
 		</span>
 
 		<div class="flex flex-nowrap gap-4">
-			<nav class="mr-4 flex gap-3">
+			<nav class="flex gap-3 md:mr-4">
 				{#if params.slug}
 					<Link url="/" label="Go to home page" ariaLabel="Navigate to home page" />
 				{:else}
@@ -58,7 +58,10 @@
 				{/if}
 			</nav>
 
-			<button class="cursor-pointer" onclick={() => (showModeNotification = true)}>
+			<button
+				class="absolute top-4 right-4 cursor-pointer md:static"
+				onclick={() => (showModeNotification = true)}
+			>
 				<Icon icon="circum:dark" height="24" />
 			</button>
 		</div>
@@ -77,7 +80,7 @@
 						toggle was likely a mistake on your part.
 					</p>
 					<button
-						class="mt-6 rounded border border-cyan-400 px-4 py-1.5 text-sm text-cyan-400 transition-colors hover:bg-cyan-400/10 cursor-pointer"
+						class="mt-6 cursor-pointer rounded border border-cyan-400 px-4 py-1.5 text-sm text-cyan-400 transition-colors hover:bg-cyan-400/10"
 						onclick={() => (showModeNotification = false)}
 					>
 						Acknowledge Mistake

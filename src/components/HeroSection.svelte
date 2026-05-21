@@ -12,7 +12,7 @@
 			<img src={headshot} alt="headshot" />
 		</div>
 
-		<div class="flex w-full flex-col items-center justify-center gap-2 p-8 lg:p-0">
+		<div class="flex w-full flex-col items-center justify-center gap-2 py-8 px-2 lg:py-0">
 			<Heading level={2}>
 				Hi, I'm Brady!
 			</Heading>
