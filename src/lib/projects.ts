@@ -46,6 +46,10 @@ export const projects: ProjectType[] = [
 			"Getting a rocket to orbit isn't just about going up, it's about going fast in exactly the right direction at exactly the right time. This interactive visualizer lets you manipulate launch and orbital parameters and watch in real time how each decision shapes a flight path's viability and efficiency. A must-try for Kerbal Space Program veterans and rocket enthusiasts alike.",
 		url: 'https://launch.bbdev.cloud',
 		githubUrl: 'https://github.com/bradybridges/rocket-launch-visualizer',
+		motivation:
+			"I've sunk more hours into Kerbal Space Program than I'll admit. There's something uniquely satisfying about the moment a rocket tips over just right and slides into orbit, but KSP abstracts a lot of the real physics away. I kept wondering what the numbers actually look like: how much does launch angle matter? How do thrust-to-weight ratios interact with atmospheric drag as altitude increases? I built this visualizer so I could explore those questions directly. Adjust a parameter, watch the trajectory shift, and build genuine intuition for why achieving orbit is about speed and direction, not just going up.",
+		technical:
+			'Generating a flight path means integrating forces like thrust, gravity, and drag across thousands of time steps for every combination of input parameters. The challenge was making each parameter adjustment feel instant even though recomputing the full trajectory is expensive. I solved this with memoization: trajectory results are keyed by their input parameters and cached, so only the affected calculation reruns when a single variable changes. D3 handles rendering, but structuring the data flow so transitions fire only on real changes, not on every reactive update, was the other half of keeping the visualizer smooth under continuous user input.',
 		slug: 'rocket-launch',
 		image: launch,
 		badges: ['React', 'TailwindCSS', 'D3', 'Docker'],
@@ -57,6 +61,10 @@ export const projects: ProjectType[] = [
 			'End-to-end encrypted, self-hostable, and entirely terminal-native. This chat application cuts out the browser and the bloat, letting users communicate securely through a lightweight NPM package from the comfort of their own terminal. Built on WebSockets and deployable in minutes with Docker.',
 		url: 'https://github.com/bradybridges/websocket-chat',
 		githubUrl: 'https://github.com/bradybridges/websocket-chat',
+		motivation:
+			"Two things bothered me about every chat tool I'd tried: they all run in a browser, and they all store your messages somewhere you don't control. I also wanted to actually understand how WebSockets work at the protocol level. Most tutorials stop at the echo server and skip the parts that matter, like encryption and real deployment. Building this gave me a concrete reason to go deep on both: a genuinely private, self-hostable communication tool I could trust, and a working understanding of the full WebSocket stack.",
+		technical:
+			"The two hardest parts were encryption and distribution. For end-to-end encryption I used Node's built-in crypto module, which meant making decisions about key exchange and message framing before a single byte goes over the wire. Getting that right without a third-party library forced me to understand what encrypted actually means in practice. The other challenge was making self-hosting frictionless: Docker packaging keeps the server and client environment consistent so anyone can spin up their own instance with a single command, no Node version conflicts or manual dependency installs.",
 		slug: 'websocket-chat',
 		image: wschat,
 		badges: ['Node', 'Websockets', 'Docker', 'Crypto'],
@@ -65,10 +73,14 @@ export const projects: ProjectType[] = [
 	{
 		name: 'Todo CLI',
 		description:
+			'A distraction-free, terminal-native task manager distributed as a lightweight NPM package. Add, complete, and remove tasks without ever leaving your terminal: no browser tab, no app switching, just a quick command and you\'re back to work. Built with Commander for intuitive CLI syntax and Chalk for clean, readable output.',
+		motivation:
 			"Constant context-switching was killing my focus. Slack notifications, impromptu requests, tasks piling up with nowhere clean to put them. Every existing CLI todo tool I tried was either bloated, ugly, or both. So I built exactly what I needed: a distraction-free, terminal-native task manager that lets me log tasks without ever leaving my terminal or opening a separate application. No alt-tabbing, no app switching, just a quick command and I'm back to what I was doing. It's not flashy, but it's the kind of tool that quietly earns its place. I've used it every day since.",
 		url: 'https://github.com/bradybridges/todo-cli',
 		githubUrl: 'https://github.com/bradybridges/todo-cli',
 		customLink: { label: 'Available on NPM', url: 'https://www.npmjs.com/package/@bradyjbridges/todo-cli' },
+		technical:
+			"The interesting part wasn't the CLI logic; it was making the package feel like a first-class NPM citizen. That meant setting up the bin field correctly so the command resolves globally after install, handling shebang lines so Node runs the entry point without the user knowing anything about the internals, and building a GitHub Actions pipeline that publishes a new version to NPM automatically on tagged releases. Getting the release pipeline right meant I never have to think about publishing manually. Tag the commit, and the rest happens.",
 		slug: 'todo-cli',
 		image: todocli,
 		badges: ['NPM', 'CLI Tool', 'Github Actions', 'Chalk', 'Commander'],
