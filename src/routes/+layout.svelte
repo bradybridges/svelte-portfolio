@@ -37,7 +37,7 @@
 			{:else}
 				<Link url="#experience" label="Experience" ariaLabel="Scroll to experience section" />
 				<Link url="#projects" label="Projects" ariaLabel="Scroll to projects section" />
-				<!-- <Link url="#contact" label="Contact" ariaLabel="Scroll to contact form" /> -->
+				<Link url="#contact" label="Contact" ariaLabel="Scroll to contact form" />
 			{/if}
 		</nav>
 	</header>
