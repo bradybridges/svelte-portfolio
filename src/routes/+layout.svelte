@@ -2,8 +2,13 @@
 	import './layout.css';
 	import linkedin from '$lib/assets/linkedin.svg';
 	import Link from '../components/Link.svelte';
+	import { afterNavigate } from '$app/navigation';
 
 	let { children, params } = $props();
+
+	afterNavigate(() => {
+		window.scrollTo({ top: 0, behavior: 'instant' });
+	});
 
 	let lastScrollY = $state(0);
 	let hidden = $state(false);
