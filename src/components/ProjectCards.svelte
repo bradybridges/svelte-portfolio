@@ -12,7 +12,7 @@
 		project.position && `object-${project.position}`
 	]}
 	<div
-		class="flex basis-full h-auto flex-col overflow-hidden rounded-xl border border-gray-800 bg-gray-900 md:basis-[calc(50%-24px)] lg:basis-[calc(33%-24px)]"
+		class="flex h-auto basis-full flex-col overflow-hidden rounded-xl border border-gray-800 bg-gray-900 md:basis-[calc(50%-24px)] lg:basis-[calc(33%-24px)]"
 	>
 		<div class="relative">
 			<a
@@ -31,7 +31,7 @@
 					href={project.githubUrl}
 					target="_blank"
 					aria-label={`Visit ${project.name} GitHub page`}
-					class="absolute right-2 top-2 bg-black rounded-full"
+					class="absolute top-2 right-2 rounded-full bg-black"
 				>
 					<svg
 						aria-hidden="true"
@@ -52,13 +52,13 @@
 			{/if}
 		</div>
 
-		<div class="flex flex-col h-full items-start gap-4 p-4">
+		<div class="flex h-full flex-col items-start gap-4 p-4">
 			<div class="w-full">
 				<Heading level={3} classes="mb-2 text-emerald-400">{project.name}</Heading>
 				<p class="text-s line-clamp-5">{project.description}</p>
 			</div>
 
-			<div class="w-full mb-4">
+			<div class="mb-4 w-full">
 				<Heading level={4} classes="mb-4">Built With</Heading>
 				<div class="flex flex-wrap gap-2">
 					{#each project.badges as badge}
@@ -72,7 +72,7 @@
 			<div class="mt-auto flex w-full justify-center">
 				<a
 					href={`/projects/${project.slug}`}
-					class="text-s min-w-32 cursor-pointer rounded border border-emerald-400 px-4 py-1 text-center font-semibold text-gray-300 hover:animate-pulse hover:text-emerald-400 disabled:opacity-50"
+					class="text-s text-center mt-6 min-w-32 cursor-pointer rounded border border-cyan-400 px-4 py-1.5 text-sm text-cyan-400 transition-colors hover:bg-cyan-400/10"
 				>
 					Read More
 				</a>
