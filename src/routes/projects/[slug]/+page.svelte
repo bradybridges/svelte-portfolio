@@ -1,5 +1,4 @@
 <script lang="ts">
-	import favicon from '$lib/assets/favicon.svg';
 	import Heading from '../../../components/Heading.svelte';
 	import Link from '../../../components/Link.svelte';
 	import Section from '../../../components/Section.svelte';
@@ -64,7 +63,7 @@
 
 <Section>
 	<div>
-		<Heading level={1} classes="mb-8">{data.project.name}</Heading>
+		<Heading level={1} classes="mb-8 text-emerald-400">{data.project.name}</Heading>
 
 		<div class="flex flex-col gap-4 lg:flex-row">
 			<div class="lg:basis-3/4">
@@ -80,20 +79,20 @@
 				{@render details('lg:hidden')}
 
 				<div class="my-12">
-					<Heading level={2} classes="mb-4">Description</Heading>
+					<Heading level={2} classes="mb-4 text-cyan-400">Description</Heading>
 					<p class="py-4 text-lg">{data.project.description}</p>
 				</div>
 
 				{#if data.project.motivation}
 					<div class="my-12">
-						<Heading level={2} classes="mb-4">Motivation</Heading>
+						<Heading level={2} classes="mb-4 text-cyan-400">Motivation</Heading>
 						<p class="py-4 text-lg">{data.project.motivation}</p>
 					</div>
 				{/if}
 
 				{#if data.project.technical}
 					<div class="my-12">
-						<Heading level={2} classes="mb-4">Technical Challenge</Heading>
+						<Heading level={2} classes="mb-4 text-cyan-400">Technical Challenge</Heading>
 						<p class="py-4 text-lg">{data.project.technical}</p>
 					</div>
 				{/if}
