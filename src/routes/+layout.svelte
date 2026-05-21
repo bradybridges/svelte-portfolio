@@ -27,7 +27,7 @@
 <div class="text-gray-300">
 	<header
 		class={[
-			'sticky top-0 z-10 flex items-center justify-between border-b border-b-cyan-400 bg-gray-950/95 p-4 transition-transform duration-300',
+			'sticky top-0 z-10 flex flex-col md:flex-row items-center gap-6 md:gap-0 justify-between border-b border-b-cyan-400 bg-gray-950/95 p-4 transition-transform duration-300',
 			hidden && '-translate-y-full'
 		]}
 		class:header-hidden={hidden}
