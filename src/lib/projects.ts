@@ -5,7 +5,7 @@ type ProjectType = {
 	slug: string;
 	image: string;
 	badges: string[];
-	customLink?: { label: string, url: string };
+	customLink?: { label: string; url: string };
 	githubUrl?: string;
 	motivation?: string;
 	technical?: string;
@@ -16,6 +16,7 @@ import easyref from '$lib/assets/easyref.png';
 import launch from '$lib/assets/launch-trajectory.png';
 import wschat from '$lib/assets/ws-chat.png';
 import todocli from '$lib/assets/todo-cli.png';
+// import dotfiles from '$lib/assets/dotfiles.png';
 
 export const projects: ProjectType[] = [
 	{
@@ -25,7 +26,7 @@ export const projects: ProjectType[] = [
 		motivation:
 			"I built EasyRef because I kept sending out job applications and sharing side projects with no idea what happened after I hit send. Did anyone actually click the GitHub link in my resume? Did a recruiter look at my portfolio? I was flying blind, and every analytics tool I found assumed I was running a marketing campaign, dashboards full of funnels, conversion goals, and UTM parameters I didn't need. EasyRef is intentionally private. There's no public signup, no third-party script to audit, no SDK to drop into someone else's codebase. I just wanted a quiet tool for myself, something I could trust to be accurate without worrying about data sharing or account tiers. When you're sending a resume, the last thing you want is your tracking infrastructure phoning home to a venture-backed SaaS.",
 		technical:
-			"Keeping campaigns, trackers, and views synchronized, while also limiting excessive network requests presented a challenge in this project. Not only did I want to to limit uneccessary requests to the backend, but it was also important to keep user experience seamless and snappy. For this I used Redux Toolkit, which comes with all the solutions I needed out of the box. By leveraging Redux, I was able to define the shape of the state of the application and APIs providing providing an organized, declarative structure to the application. With built in caching mechanisms, react-query integration, and global state management, Redux saved me from reinventing the wheel. This tool provides robust functionality to manage and manipulate data across the application, leaving users with an application that loads quickly, caches data effectively, and gets data where it's needed efficiently.",
+			"Keeping campaigns, trackers, and views synchronized, while also limiting excessive network requests presented a challenge in this project. Not only did I want to to limit uneccessary requests to the backend, but it was also important to keep user experience seamless and snappy. For this I used Redux Toolkit, which comes with all the solutions I needed out of the box. By leveraging Redux, I was able to define the shape of the state of the application and APIs providing an organized, declarative structure to the application. With built in caching mechanisms, react-query integration, and global state management, Redux saved me from reinventing the wheel. This tool provides robust functionality to manage and manipulate data across the application, leaving users with an application that loads quickly, caches data effectively, and gets data where it's needed efficiently.",
 		url: 'https://easyref.bbdev.cloud',
 		slug: 'easy-ref',
 		image: easyref,
@@ -47,7 +48,7 @@ export const projects: ProjectType[] = [
 		url: 'https://launch.bbdev.cloud',
 		githubUrl: 'https://github.com/bradybridges/rocket-launch-visualizer',
 		motivation:
-			"I've sunk more hours into Kerbal Space Program than I'll admit. There's something uniquely satisfying about the moment a rocket tips over just right and slides into orbit, but KSP abstracts a lot of the real physics away. I kept wondering what the numbers actually look like: how much does launch angle matter? How do thrust-to-weight ratios interact with atmospheric drag as altitude increases? I built this visualizer so I could explore those questions directly. Adjust a parameter, watch the trajectory shift, and build genuine intuition for why achieving orbit is about speed and direction, not just going up.",
+			"I've sunk more hours into Kerbal Space Program than I'll admit. There's something uniquely satisfying about the moment a rocket officially reaches a stable orbit, but KSP abstracts a lot of the real physics away. I kept wondering what the numbers actually look like: how much does launch angle matter? How do thrust-to-weight ratios interact with atmospheric drag as altitude increases? I built this visualizer so I could explore those questions directly. Adjust a parameter, watch the trajectory shift, and build genuine intuition for why achieving orbit is about speed and direction, not just going up.",
 		technical:
 			'Generating a flight path means integrating forces like thrust, gravity, and drag across thousands of time steps for every combination of input parameters. The challenge was making each parameter adjustment feel instant even though recomputing the full trajectory is expensive. I solved this with memoization: trajectory results are keyed by their input parameters and cached, so only the affected calculation reruns when a single variable changes. D3 handles rendering, but structuring the data flow so transitions fire only on real changes, not on every reactive update, was the other half of keeping the visualizer smooth under continuous user input.',
 		slug: 'rocket-launch',
@@ -62,9 +63,9 @@ export const projects: ProjectType[] = [
 		url: 'https://github.com/bradybridges/websocket-chat',
 		githubUrl: 'https://github.com/bradybridges/websocket-chat',
 		motivation:
-			"Two things bothered me about every chat tool I'd tried: they all run in a browser, and they all store your messages somewhere you don't control. I also wanted to actually understand how WebSockets work at the protocol level. Most tutorials stop at the echo server and skip the parts that matter, like encryption and real deployment. Building this gave me a concrete reason to go deep on both: a genuinely private, self-hostable communication tool I could trust, and a working understanding of the full WebSocket stack.",
+			"Over the years I've heard a lot about WebSockets and common applications of the technology. I've always thought the real-time nature of WebSockets was neat. I've interacted with WebSockets in my day to day work, but I have never had the opportunity to build out a WebSocket server from the ground up. I decided to create a small personal project to incorporate the tech and provide myself the opportunity to learn more about how WebSockets work under the hood. I've always been drawn to CLI based applications, as well as privacy focused applications. So I decided to intermingle these interests and create a terminal based end-to-end encrypted chat app",
 		technical:
-			"The two hardest parts were encryption and distribution. For end-to-end encryption I used Node's built-in crypto module, which meant making decisions about key exchange and message framing before a single byte goes over the wire. Getting that right without a third-party library forced me to understand what encrypted actually means in practice. The other challenge was making self-hosting frictionless: Docker packaging keeps the server and client environment consistent so anyone can spin up their own instance with a single command, no Node version conflicts or manual dependency installs.",
+			"The two hardest parts were encryption and distribution. For end-to-end encryption I used Node's built-in crypto module, which meant making decisions about key exchange and message framing before a single byte goes over the wire. Getting that right without a third-party library forced me to understand what encrypted actually means in practice. Docker packaging keeps the server and client environment consistent so anyone can spin up their own instance with a single command.",
 		slug: 'websocket-chat',
 		image: wschat,
 		badges: ['Node', 'Websockets', 'Docker', 'Crypto'],
@@ -73,17 +74,35 @@ export const projects: ProjectType[] = [
 	{
 		name: 'Todo CLI',
 		description:
-			'A distraction-free, terminal-native task manager distributed as a lightweight NPM package. Add, complete, and remove tasks without ever leaving your terminal: no browser tab, no app switching, just a quick command and you\'re back to work. Built with Commander for intuitive CLI syntax and Chalk for clean, readable output.',
+			"A distraction-free, terminal-native task manager distributed as a lightweight NPM package. Add, complete, and remove tasks without ever leaving your terminal: no browser tab, no app switching, just a quick command and you're back to work. Built with Commander for intuitive CLI syntax and Chalk for clean, readable output.",
 		motivation:
 			"Constant context-switching was killing my focus. Slack notifications, impromptu requests, tasks piling up with nowhere clean to put them. Every existing CLI todo tool I tried was either bloated, ugly, or both. So I built exactly what I needed: a distraction-free, terminal-native task manager that lets me log tasks without ever leaving my terminal or opening a separate application. No alt-tabbing, no app switching, just a quick command and I'm back to what I was doing. It's not flashy, but it's the kind of tool that quietly earns its place. I've used it every day since.",
 		url: 'https://github.com/bradybridges/todo-cli',
 		githubUrl: 'https://github.com/bradybridges/todo-cli',
-		customLink: { label: 'Available on NPM', url: 'https://www.npmjs.com/package/@bradyjbridges/todo-cli' },
+		customLink: {
+			label: 'Available on NPM',
+			url: 'https://www.npmjs.com/package/@bradyjbridges/todo-cli'
+		},
 		technical:
 			"The interesting part wasn't the CLI logic; it was making the package feel like a first-class NPM citizen. That meant setting up the bin field correctly so the command resolves globally after install, handling shebang lines so Node runs the entry point without the user knowing anything about the internals, and building a GitHub Actions pipeline that publishes a new version to NPM automatically on tagged releases. Getting the release pipeline right meant I never have to think about publishing manually. Tag the commit, and the rest happens.",
 		slug: 'todo-cli',
 		image: todocli,
 		badges: ['NPM', 'CLI Tool', 'Github Actions', 'Chalk', 'Commander'],
 		position: 'top'
-	}
+	},
+	// {
+	// 	name: 'Dotfiles',
+	// 	description:
+	// 		'A single source of truth for every config file across Linux and macOS, deployed in minutes via GNU Stow. Covers the full development environment from the window manager down: Neovim, Zsh, Tmux, and both a Hyprland Wayland stack and an i3 X11 stack for Linux. Clone it, stow the packages you need, and be productive on any machine without touching a settings menu.',
+	// 	motivation:
+	// 		"For a long time my configs lived across a graveyard of gists, scattered files on individual machines, and half-remembered blog posts. I'd tweak something on one computer, forget to sync it, and slowly every machine became its own snowflake. The real cost wasn't the manual copying; it was never being able to trust that any given machine was actually set up the way I wanted. Fresh installs meant losing months of accumulated muscle memory. I finally sat down to fix it properly, and the goal was simple: one canonical repo, applied with a single command, that I never have to think about again.",
+	// 	technical:
+	// 		"The core design insight behind GNU Stow is that each package directory mirrors the structure of $HOME exactly. Running stow against a package creates symlinks in the right places automatically; removing them is a single flag away. That model made the platform split obvious: a global/ directory for cross-platform tools like Neovim, and separate linux/ and macos/ directories for OS-specific configs. Any given machine stows exactly the packages it needs and ignores the rest. The Linux side maintains two complete desktop stacks: Hyprland on Wayland as the primary setup and i3 on X11 as a fallback, because not every machine or GPU driver plays well with Wayland. Keeping both configs in the repo means switching stacks is a stow command, not a reinstall. Neovim uses Mason to auto-install LSP servers, formatters, and linters on first launch, so the editor is fully operational from a fresh clone with no manual setup steps. Tmux Resurrect saves session state across reboots, which means a machine restart doesn't require rebuilding a terminal layout from scratch.",
+	// 	url: 'https://github.com/bradybridges/dotfiles',
+	// 	githubUrl: 'https://github.com/bradybridges/dotfiles',
+	// 	badges: ['GNU Stow', 'Neovim', 'Hyprland', 'i3', 'Tmux', 'Zsh', 'macOS', 'Linux'],
+	// 	image: dotfiles,
+	// 	position: 'top',
+	// 	slug: 'dotfiles'
+	// }
 ];
