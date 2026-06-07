@@ -10,13 +10,10 @@ type ProjectType = {
 	motivation?: string;
 	technical?: string;
 	position?: 'top' | 'center' | 'bottom';
+	hidden?: boolean
 };
 
-import easyref from '$lib/assets/easyref.png';
-import launch from '$lib/assets/launch-trajectory.png';
-import wschat from '$lib/assets/ws-chat.png';
-import todocli from '$lib/assets/todo-cli.png';
-// import dotfiles from '$lib/assets/dotfiles.png';
+import { cloudinaryUrl } from '$lib/cloudinary';
 
 export const projects: ProjectType[] = [
 	{
@@ -29,7 +26,7 @@ export const projects: ProjectType[] = [
 			"Keeping campaigns, trackers, and views synchronized, while also limiting excessive network requests presented a challenge in this project. Not only did I want to to limit uneccessary requests to the backend, but it was also important to keep user experience seamless and snappy. For this I used Redux Toolkit, which comes with all the solutions I needed out of the box. By leveraging Redux, I was able to define the shape of the state of the application and APIs providing an organized, declarative structure to the application. With built in caching mechanisms, react-query integration, and global state management, Redux saved me from reinventing the wheel. This tool provides robust functionality to manage and manipulate data across the application, leaving users with an application that loads quickly, caches data effectively, and gets data where it's needed efficiently.",
 		url: 'https://easyref.bbdev.cloud',
 		slug: 'easy-ref',
-		image: easyref,
+		image: cloudinaryUrl('easyref-home'),
 		badges: [
 			'React',
 			'Typescript',
@@ -52,7 +49,7 @@ export const projects: ProjectType[] = [
 		technical:
 			'Generating a flight path means integrating forces like thrust, gravity, and drag across thousands of time steps for every combination of input parameters. The challenge was making each parameter adjustment feel instant even though recomputing the full trajectory is expensive. I solved this with memoization: trajectory results are keyed by their input parameters and cached, so only the affected calculation reruns when a single variable changes. D3 handles rendering, but structuring the data flow so transitions fire only on real changes, not on every reactive update, was the other half of keeping the visualizer smooth under continuous user input.',
 		slug: 'rocket-launch',
-		image: launch,
+		image: cloudinaryUrl('launch-desktop'),
 		badges: ['React', 'TailwindCSS', 'D3', 'Docker'],
 		position: 'top'
 	},
@@ -67,7 +64,7 @@ export const projects: ProjectType[] = [
 		technical:
 			"The two hardest parts were encryption and distribution. For end-to-end encryption I used Node's built-in crypto module, which meant making decisions about key exchange and message framing before a single byte goes over the wire. Getting that right without a third-party library forced me to understand what encrypted actually means in practice. Docker packaging keeps the server and client environment consistent so anyone can spin up their own instance with a single command.",
 		slug: 'websocket-chat',
-		image: wschat,
+		image: cloudinaryUrl('ws-chat'),
 		badges: ['Node', 'Websockets', 'Docker', 'Crypto'],
 		position: 'top'
 	},
@@ -86,23 +83,24 @@ export const projects: ProjectType[] = [
 		technical:
 			"The interesting part wasn't the CLI logic; it was making the package feel like a first-class NPM citizen. That meant setting up the bin field correctly so the command resolves globally after install, handling shebang lines so Node runs the entry point without the user knowing anything about the internals, and building a GitHub Actions pipeline that publishes a new version to NPM automatically on tagged releases. Getting the release pipeline right meant I never have to think about publishing manually. Tag the commit, and the rest happens.",
 		slug: 'todo-cli',
-		image: todocli,
+		image: cloudinaryUrl('todo-cli'),
 		badges: ['NPM', 'CLI Tool', 'Github Actions', 'Chalk', 'Commander'],
 		position: 'top'
 	},
-	// {
-	// 	name: 'Dotfiles',
-	// 	description:
-	// 		'A single source of truth for every config file across Linux and macOS, deployed in minutes via GNU Stow. Covers the full development environment from the window manager down: Neovim, Zsh, Tmux, and both a Hyprland Wayland stack and an i3 X11 stack for Linux. Clone it, stow the packages you need, and be productive on any machine without touching a settings menu.',
-	// 	motivation:
-	// 		"For a long time my configs lived across a graveyard of gists, scattered files on individual machines, and half-remembered blog posts. I'd tweak something on one computer, forget to sync it, and slowly every machine became its own snowflake. The real cost wasn't the manual copying; it was never being able to trust that any given machine was actually set up the way I wanted. Fresh installs meant losing months of accumulated muscle memory. I finally sat down to fix it properly, and the goal was simple: one canonical repo, applied with a single command, that I never have to think about again.",
-	// 	technical:
-	// 		"The core design insight behind GNU Stow is that each package directory mirrors the structure of $HOME exactly. Running stow against a package creates symlinks in the right places automatically; removing them is a single flag away. That model made the platform split obvious: a global/ directory for cross-platform tools like Neovim, and separate linux/ and macos/ directories for OS-specific configs. Any given machine stows exactly the packages it needs and ignores the rest. The Linux side maintains two complete desktop stacks: Hyprland on Wayland as the primary setup and i3 on X11 as a fallback, because not every machine or GPU driver plays well with Wayland. Keeping both configs in the repo means switching stacks is a stow command, not a reinstall. Neovim uses Mason to auto-install LSP servers, formatters, and linters on first launch, so the editor is fully operational from a fresh clone with no manual setup steps. Tmux Resurrect saves session state across reboots, which means a machine restart doesn't require rebuilding a terminal layout from scratch.",
-	// 	url: 'https://github.com/bradybridges/dotfiles',
-	// 	githubUrl: 'https://github.com/bradybridges/dotfiles',
-	// 	badges: ['GNU Stow', 'Neovim', 'Hyprland', 'i3', 'Tmux', 'Zsh', 'macOS', 'Linux'],
-	// 	image: dotfiles,
-	// 	position: 'top',
-	// 	slug: 'dotfiles'
-	// }
+	{
+		name: 'Dotfiles',
+		description:
+			'A single source of truth for every config file across Linux and macOS, deployed in minutes via GNU Stow. Covers the full development environment from the window manager down: Neovim, Zsh, Tmux, and both a Hyprland Wayland stack and an i3 X11 stack for Linux. Clone it, stow the packages you need, and be productive on any machine without touching a settings menu.',
+		motivation:
+			"For a long time my configs lived across a graveyard of gists, scattered files on individual machines, and half-remembered blog posts. I'd tweak something on one computer, forget to sync it, and slowly every machine became its own snowflake. The real cost wasn't the manual copying; it was never being able to trust that any given machine was actually set up the way I wanted. Fresh installs meant losing months of accumulated muscle memory. I finally sat down to fix it properly, and the goal was simple: one canonical repo, applied with a single command, that I never have to think about again.",
+		technical:
+			"The core design insight behind GNU Stow is that each package directory mirrors the structure of $HOME exactly. Running stow against a package creates symlinks in the right places automatically; removing them is a single flag away. That model made the platform split obvious: a global/ directory for cross-platform tools like Neovim, and separate linux/ and macos/ directories for OS-specific configs. Any given machine stows exactly the packages it needs and ignores the rest. The Linux side maintains two complete desktop stacks: Hyprland on Wayland as the primary setup and i3 on X11 as a fallback, because not every machine or GPU driver plays well with Wayland. Keeping both configs in the repo means switching stacks is a stow command, not a reinstall. Neovim uses Mason to auto-install LSP servers, formatters, and linters on first launch, so the editor is fully operational from a fresh clone with no manual setup steps. Tmux Resurrect saves session state across reboots, which means a machine restart doesn't require rebuilding a terminal layout from scratch.",
+		url: 'https://github.com/bradybridges/dotfiles',
+		githubUrl: 'https://github.com/bradybridges/dotfiles',
+		badges: ['GNU Stow', 'Neovim', 'Hyprland', 'i3', 'Kitty', 'iTerm', 'Tmux', 'Zsh', 'macOS', 'Linux'],
+		image: cloudinaryUrl('dotfiles'),
+		position: 'top',
+		slug: 'dotfiles',
+		hidden: true,
+	}
 ];

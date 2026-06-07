@@ -1,7 +1,9 @@
 <script lang="ts">
-	import headshot from '$lib/assets/Brady Bridges.jpg';
+	import { cloudinaryUrl } from '$lib/cloudinary';
 	import Heading from './Heading.svelte';
 	import Section from './Section.svelte';
+
+	const headshot = cloudinaryUrl('headshot');
 </script>
 
 <Section>

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Callout from './Callout.svelte';
 	import Heading from './Heading.svelte';
 	import ProjectCards from './ProjectCards.svelte';
 	import Section from './Section.svelte';
@@ -12,4 +13,11 @@
 			<ProjectCards />
 		</div>
 	</div>
+
+	<Callout
+		descriptionText="My entire development environment version-controlled and deployable to any machine with a single command. Neovim, Tmux, Zsh, and two full Linux desktop stacks included."
+		linkText="Read More"
+		url="/projects/dotfiles"
+		classes="w-full mt-10"
+	/>
 </Section>
