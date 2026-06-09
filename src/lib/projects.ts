@@ -10,7 +10,7 @@ type ProjectType = {
 	motivation?: string;
 	technical?: string;
 	position?: 'top' | 'center' | 'bottom';
-	hidden?: boolean
+	hidden?: boolean;
 };
 
 import { cloudinaryUrl } from '$lib/cloudinary';
@@ -88,6 +88,20 @@ export const projects: ProjectType[] = [
 		position: 'top'
 	},
 	{
+		name: 'Password Manager',
+		description:
+			'A local-first, cross-platform desktop password manager with no cloud dependency and no subscription fee. Credentials live in named vaults on disk, each encrypted with a master password using PBKDF2HMAC key derivation and Fernet authenticated encryption. The tkinter interface provides a clean credential browser with a list pane, detail panel, and inline add/edit dialogs — all without leaving the desktop.',
+		motivation:
+			"I wanted to actually understand what a password manager does to my data before trusting one with everything. Most explanations hand-wave over the crypto with phrases like 'bank-grade encryption' and call it a day. Building one myself meant making every decision explicitly: how keys are derived from a password, what authenticated encryption actually guarantees, why iteration count matters, and where the vault file lives on each platform. The goal was never to replace a production tool, it was to reach the point where I could read the implementation of any password manager and know whether it was doing the right things.",
+		technical:
+			"The crypto stack is deliberately straightforward: PBKDF2HMAC-SHA256 at 600,000 iterations derives an encryption key from the master password and a random per-vault salt, then Fernet handles authenticated encryption of the credential payload. Fernet's authenticated ciphertext means a wrong password or a corrupted file raises a distinct error rather than silently decrypting garbage, which made building the error hierarchy clean. Vault writes are atomic: data goes to a `.tmp` file first, then `os.replace()` swaps it in, so a crash mid-write can never leave a vault in a partial state. The tkinter UI uses a frame-stack pattern where all three screens share the same grid cell and navigation works by calling `tkraise()`; frames expose a `load()` method that receives data on navigation, which keeps the credential browser decoupled from the login and vault-creation screens. Storage paths are platform-aware out of the box: `~/Library/Application Support` on macOS, `%APPDATA%` on Windows, and `$XDG_DATA_HOME` on Linux.",
+		url: 'https://github.com/bradybridges/password-manager',
+		githubUrl: 'https://github.com/bradybridges/password-manager',
+		slug: 'password-manager',
+		image: cloudinaryUrl('password-manager'),
+		badges: ['Python', 'TKinter']
+	},
+	{
 		name: 'Dotfiles',
 		description:
 			'A single source of truth for every config file across Linux and macOS, deployed in minutes via GNU Stow. Covers the full development environment from the window manager down: Neovim, Zsh, Tmux, and both a Hyprland Wayland stack and an i3 X11 stack for Linux. Clone it, stow the packages you need, and be productive on any machine without touching a settings menu.',
@@ -97,10 +111,21 @@ export const projects: ProjectType[] = [
 			"The core design insight behind GNU Stow is that each package directory mirrors the structure of $HOME exactly. Running stow against a package creates symlinks in the right places automatically; removing them is a single flag away. That model made the platform split obvious: a global/ directory for cross-platform tools like Neovim, and separate linux/ and macos/ directories for OS-specific configs. Any given machine stows exactly the packages it needs and ignores the rest. The Linux side maintains two complete desktop stacks: Hyprland on Wayland as the primary setup and i3 on X11 as a fallback, because not every machine or GPU driver plays well with Wayland. Keeping both configs in the repo means switching stacks is a stow command, not a reinstall. Neovim uses Mason to auto-install LSP servers, formatters, and linters on first launch, so the editor is fully operational from a fresh clone with no manual setup steps. Tmux Resurrect saves session state across reboots, which means a machine restart doesn't require rebuilding a terminal layout from scratch.",
 		url: 'https://github.com/bradybridges/dotfiles',
 		githubUrl: 'https://github.com/bradybridges/dotfiles',
-		badges: ['GNU Stow', 'Neovim', 'Hyprland', 'i3', 'Kitty', 'iTerm', 'Tmux', 'Zsh', 'macOS', 'Linux'],
+		badges: [
+			'GNU Stow',
+			'Neovim',
+			'Hyprland',
+			'i3',
+			'Kitty',
+			'iTerm',
+			'Tmux',
+			'Zsh',
+			'macOS',
+			'Linux'
+		],
 		image: cloudinaryUrl('dotfiles'),
 		position: 'top',
 		slug: 'dotfiles',
-		hidden: true,
+		hidden: true
 	}
 ];
