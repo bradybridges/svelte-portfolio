@@ -1,14 +1,21 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { projects } from '$lib/projects';
 	import Heading from './Heading.svelte';
+
+	const positionClass: Record<string, string> = {
+		top: 'object-top',
+		center: 'object-center',
+		bottom: 'object-bottom'
+	};
 </script>
 
-{#each projects as project}
+{#each projects as project (project.name)}
 	{@const imageClasses = [
 		'h-48',
 		'w-full',
 		'object-cover',
-		project.position && `object-${project.position}`
+		project.position ? positionClass[project.position] : undefined
 	]}
 
 	{#if !project.hidden}
@@ -16,6 +23,7 @@
 			class="flex h-auto basis-full flex-col overflow-hidden rounded-xl border border-gray-800 bg-gray-900 md:basis-[calc(50%-24px)] lg:basis-[calc(33%-24px)]"
 		>
 			<div class="relative">
+				<!-- eslint-disable svelte/no-navigation-without-resolve -- external URL -->
 				<a
 					href={project.url}
 					class="mb-2 border-b border-b-emerald-400 pb-4"
@@ -24,10 +32,12 @@
 						? 'Github repository'
 						: 'live site'}"
 				>
-					<img class={imageClasses} src={project.image} alt="EasyRef" />
+					<img class={imageClasses} src={project.image} alt={project.name} />
 				</a>
+				<!-- eslint-enable svelte/no-navigation-without-resolve -->
 
 				{#if project.githubUrl}
+					<!-- eslint-disable svelte/no-navigation-without-resolve -- external URL -->
 					<a
 						href={project.githubUrl}
 						target="_blank"
@@ -50,6 +60,7 @@
 							></path></svg
 						>
 					</a>
+					<!-- eslint-enable svelte/no-navigation-without-resolve -->
 				{/if}
 			</div>
 
@@ -62,7 +73,7 @@
 				<div class="mb-4 w-full">
 					<Heading level={4} classes="mb-4">Built With</Heading>
 					<div class="flex flex-wrap gap-2">
-						{#each project.badges as badge}
+						{#each project.badges as badge (badge)}
 							<span
 								class="text-s rounded-full border border-gray-500 bg-gray-800 px-3"
 								>{badge}</span
@@ -73,7 +84,7 @@
 
 				<div class="mt-auto flex w-full justify-center">
 					<a
-						href={`/projects/${project.slug}`}
+						href={resolve(`/projects/${project.slug}`)}
 						class="text-s mt-6 min-w-32 cursor-pointer rounded border border-cyan-400 px-4 py-1.5 text-center text-sm text-cyan-400 transition-colors hover:bg-cyan-400/10"
 					>
 						Read More

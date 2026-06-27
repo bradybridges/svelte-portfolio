@@ -4,6 +4,19 @@
 	import Section from '../../../components/Section.svelte';
 	let { data } = $props();
 	let hasLinks = $derived(data.project.githubUrl || data.project.url ? true : false);
+
+	const positionClass: Record<string, string> = {
+		top: 'object-top',
+		center: 'object-center',
+		bottom: 'object-bottom'
+	};
+
+	const imageClasses = $derived([
+		'h-100',
+		'w-full',
+		'object-cover',
+		data.project.position ? positionClass[data.project.position] : undefined
+	]);
 </script>
 
 <svelte:head>
@@ -54,7 +67,7 @@
 			<Heading level={3} classes="mb-4 text-xl">Built With</Heading>
 
 			<div class="flex flex-wrap gap-2">
-				{#each data.project.badges as badge}
+				{#each data.project.badges as badge (badge)}
 					<span class="text-s rounded-full border border-cyan-400/50 bg-gray-800 px-3"
 						>{badge}</span
 					>
@@ -72,7 +85,7 @@
 			<div class="lg:basis-3/4">
 				<div class="mb-4 overflow-hidden rounded border border-gray-700 lg:mb-16">
 					<img
-						class="none h-100 w-full object-cover object-center"
+						class={imageClasses}
 						src={data.project.image}
 						alt={`${data.project.name} thumbnail`}
 					/>
@@ -95,7 +108,8 @@
 
 				{#if data.project.technical}
 					<div class="my-12">
-						<Heading level={2} classes="mb-4 text-cyan-400">Technical Challenge</Heading>
+						<Heading level={2} classes="mb-4 text-cyan-400">Technical Challenge</Heading
+						>
 						<p class="py-4 text-lg">{data.project.technical}</p>
 					</div>
 				{/if}
