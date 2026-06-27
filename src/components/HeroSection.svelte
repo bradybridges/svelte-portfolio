@@ -3,7 +3,7 @@
 	import Heading from './Heading.svelte';
 	import Section from './Section.svelte';
 
-	const headshot = cloudinaryUrl('headshot');
+	const headshot = cloudinaryUrl('headshot2');
 </script>
 
 <Section>
