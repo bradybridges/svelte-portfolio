@@ -60,7 +60,7 @@ export const projects: ProjectType[] = [
 		url: 'https://github.com/bradybridges/websocket-chat',
 		githubUrl: 'https://github.com/bradybridges/websocket-chat',
 		motivation:
-			"Over the years I've heard a lot about WebSockets and common applications of the technology. I've always thought the real-time nature of WebSockets was neat. I've interacted with WebSockets in my day to day work, but I have never had the opportunity to build out a WebSocket server from the ground up. I decided to create a small personal project to incorporate the tech and provide myself the opportunity to learn more about how WebSockets work under the hood. I've always been drawn to CLI based applications, as well as privacy focused applications. So I decided to intermingle these interests and create a terminal based end-to-end encrypted chat app",
+			"Over the years I've heard a lot about WebSockets and common applications of the technology. I've always thought the real-time nature of WebSockets was neat. I've interacted with WebSockets in my day to day work, but I have never had the opportunity to build out a WebSocket server from the ground up. I decided to create a small personal project to incorporate the tech and provide myself the opportunity to learn more about how WebSockets work under the hood. I've always been drawn to CLI based applications, as well as privacy focused applications. So I decided to intermingle these interests and create a terminal based end-to-end encrypted chat app.",
 		technical:
 			"The two hardest parts were encryption and distribution. For end-to-end encryption I used Node's built-in crypto module, which meant making decisions about key exchange and message framing before a single byte goes over the wire. Getting that right without a third-party library forced me to understand what encrypted actually means in practice. Docker packaging keeps the server and client environment consistent so anyone can spin up their own instance with a single command.",
 		slug: 'websocket-chat',
@@ -73,7 +73,7 @@ export const projects: ProjectType[] = [
 		description:
 			"A distraction-free, terminal-native task manager distributed as a lightweight NPM package. Add, complete, and remove tasks without ever leaving your terminal: no browser tab, no app switching, just a quick command and you're back to work. Built with Commander for intuitive CLI syntax and Chalk for clean, readable output.",
 		motivation:
-			"Constant context-switching was killing my focus. Slack notifications, impromptu requests, tasks piling up with nowhere clean to put them. Every existing CLI todo tool I tried was either bloated, ugly, or both. So I built exactly what I needed: a distraction-free, terminal-native task manager that lets me log tasks without ever leaving my terminal or opening a separate application. No alt-tabbing, no app switching, just a quick command and I'm back to what I was doing. It's not flashy, but it's the kind of tool that quietly earns its place. I've used it every day since.",
+			"Constant context-switching was killing my focus. Slack notifications, impromptu requests, tasks piling up with nowhere clean to put them. Every existing CLI todo tool I tried was either bloated, ugly, or both. So I built exactly what I needed: a distraction-free, terminal-native task manager that lets me log tasks without ever leaving my terminal or opening a separate application. No alt-tabbing, no app switching, just a quick command and I'm back to what I was doing. It's not flashy, but it's the kind of tool that quietly earns its place. I've used it every day since. Eventually I'd like to add more features, like cloud based syncing of todo lists, project specific todo lists, and more. For now this tool is working well for me.",
 		url: 'https://github.com/bradybridges/todo-cli',
 		githubUrl: 'https://github.com/bradybridges/todo-cli',
 		customLink: {
@@ -84,7 +84,7 @@ export const projects: ProjectType[] = [
 			"The interesting part wasn't the CLI logic; it was making the package feel like a first-class NPM citizen. That meant setting up the bin field correctly so the command resolves globally after install, handling shebang lines so Node runs the entry point without the user knowing anything about the internals, and building a GitHub Actions pipeline that publishes a new version to NPM automatically on tagged releases. Getting the release pipeline right meant I never have to think about publishing manually. Tag the commit, and the rest happens.",
 		slug: 'todo-cli',
 		image: cloudinaryUrl('todo-cli'),
-		badges: ['NPM', 'CLI Tool', 'Github Actions', 'Chalk', 'Commander'],
+		badges: ['NPM', 'Chalk', 'Commander', 'Github Actions', 'Automated Releases'],
 		position: 'top'
 	},
 	{
@@ -92,14 +92,14 @@ export const projects: ProjectType[] = [
 		description:
 			'A local-first, cross-platform desktop password manager with no cloud dependency and no subscription fee. Credentials live in named vaults on disk, each encrypted with a master password using PBKDF2HMAC key derivation and Fernet authenticated encryption. The tkinter interface provides a clean credential browser with a list pane, detail panel, and inline add/edit dialogs — all without leaving the desktop.',
 		motivation:
-			"I wanted to actually understand what a password manager does to my data before trusting one with everything. Most explanations hand-wave over the crypto with phrases like 'bank-grade encryption' and call it a day. Building one myself meant making every decision explicitly: how keys are derived from a password, what authenticated encryption actually guarantees, why iteration count matters, and where the vault file lives on each platform. The goal was never to replace a production tool, it was to reach the point where I could read the implementation of any password manager and know whether it was doing the right things.",
+			"After several breaches of password management applications I've used in the past, I had to go oldschool to protect my credentials. For a time I was manually encrypting and maintaining my credentials from the CLI using OpenSSL. This was a solution I was happy with at first, and left me in position where I felt my sensitive data was secure and less likely to be exposed. After I time this became cumbersone, and managing passwords took more and more time. I've wanted to fiddle around with Python more, and took on this application as a good opportunity to learn more about the technology and building desktop graphical interfaces. My goal was to create a completely offline, portable, and secure password management application to give me more control and confidence over the security of my sensitive credentials.",
 		technical:
 			"The crypto stack is deliberately straightforward: PBKDF2HMAC-SHA256 at 600,000 iterations derives an encryption key from the master password and a random per-vault salt, then Fernet handles authenticated encryption of the credential payload. Fernet's authenticated ciphertext means a wrong password or a corrupted file raises a distinct error rather than silently decrypting garbage, which made building the error hierarchy clean. Vault writes are atomic: data goes to a `.tmp` file first, then `os.replace()` swaps it in, so a crash mid-write can never leave a vault in a partial state. The tkinter UI uses a frame-stack pattern where all three screens share the same grid cell and navigation works by calling `tkraise()`; frames expose a `load()` method that receives data on navigation, which keeps the credential browser decoupled from the login and vault-creation screens. Storage paths are platform-aware out of the box: `~/Library/Application Support` on macOS, `%APPDATA%` on Windows, and `$XDG_DATA_HOME` on Linux.",
 		url: 'https://github.com/bradybridges/password-manager',
 		githubUrl: 'https://github.com/bradybridges/password-manager',
 		slug: 'password-manager',
 		image: cloudinaryUrl('password-manager'),
-		badges: ['Python', 'TKinter']
+		badges: ['Python', 'Tkinter', 'Cryptography']
 	},
 	{
 		name: 'Dotfiles',
