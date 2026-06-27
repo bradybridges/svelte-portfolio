@@ -1,11 +1,11 @@
 <script lang="ts">
-	import Callout from './Callout.svelte';
-	import Heading from './Heading.svelte';
-	import ProjectCards from './ProjectCards.svelte';
-	import Section from './Section.svelte';
+	import Callout from '../Callout.svelte';
+	import Heading from '../Heading.svelte';
+	import ProjectCards from '../ProjectCards.svelte';
+	import Section from '../Section.svelte';
 </script>
 
-<Section id="projects" class="my-6 flex flex-col items-start gap-4">
+<Section id="projects" class="flex flex-col items-start gap-4">
 	<Heading level={2} classes="mb-2 text-cyan-400">Projects</Heading>
 
 	<div class="w-full">

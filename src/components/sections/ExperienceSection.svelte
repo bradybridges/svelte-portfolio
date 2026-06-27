@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { roles } from '$lib/roles';
-	import Heading from './Heading.svelte';
-	import Link from './Link.svelte';
-	import Section from './Section.svelte';
+	import Heading from '../Heading.svelte';
+	import Link from '../Link.svelte';
+	import Section from '../Section.svelte';
 </script>
 
 <Section id="experience">
@@ -12,7 +12,7 @@
 		</Heading>
 
 		{#each roles as role (role.title)}
-			<div class="rounded bg-gray-900 p-4 border border-cyan-400/50">
+			<div class="rounded-xl bg-gray-900 p-4 border border-cyan-400/50">
 				<div class="role-card relative flex flex-col items-start justify-center gap-2 pl-8">
 					<span class="absolute top-0 left-0 h-3 w-3 rounded-full bg-cyan-400"></span>
 					<span class="absolute bottom-0 left-0 h-3 w-3 rounded-full bg-cyan-400"></span>
@@ -21,7 +21,7 @@
 						<div
 							class="flex w-full flex-col items-start justify-between md:flex-row md:items-center"
 						>
-							<div class="text-xl font-bold text-cyan-500">{role.title}</div>
+							<div class="text-xl font-bold text-cyan-400">{role.title}</div>
 							<div>
 								<div class="mb-1 text-left font-semibold md:text-right">
 									{#if role.companyUrl}
