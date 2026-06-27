@@ -15,7 +15,7 @@
 		</div>
 
 		<div class="flex w-full flex-col items-center justify-center gap-2 py-8 px-2 lg:py-0">
-			<Heading level={2}>
+			<Heading level={2} classes="text-emerald-400">
 				Hi, I'm Brady!
 			</Heading>
 
