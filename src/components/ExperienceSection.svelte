@@ -7,11 +7,11 @@
 
 <Section id="experience">
 	<div class="flex flex-col gap-8">
-		<Heading level={2}>
+		<Heading level={2} classes="text-cyan-400">
 			Professional Experience
 		</Heading>
 
-		{#each roles as role}
+		{#each roles as role (role.title)}
 			<div class="rounded bg-gray-900 p-4 border border-cyan-400/50">
 				<div class="role-card relative flex flex-col items-start justify-center gap-2 pl-8">
 					<span class="absolute top-0 left-0 h-3 w-3 rounded-full bg-cyan-400"></span>
@@ -44,7 +44,7 @@
 
 					{#if role.bullets}
 						<ul class="list-disc pl-4">
-							{#each role.bullets as bullet}
+							{#each role.bullets as bullet (bullet)}
 								<li class="py-1">{bullet}</li>
 							{/each}
 						</ul>
