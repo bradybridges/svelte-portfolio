@@ -20,7 +20,7 @@
 
 	{#if !project.hidden}
 		<div
-			class="flex h-auto basis-full flex-col overflow-hidden rounded-xl border border-gray-800 bg-gray-900 md:basis-[calc(50%-24px)] lg:basis-[calc(33%-24px)]"
+			class="flex h-auto basis-full flex-col overflow-hidden rounded-xl border border-cyan-400/50 bg-gray-900 md:basis-[calc(50%-24px)] lg:basis-[calc(33%-24px)]"
 		>
 			<div class="relative">
 				<!-- eslint-disable svelte/no-navigation-without-resolve -- external URL -->

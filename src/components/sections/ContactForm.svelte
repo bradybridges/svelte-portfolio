@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { PUBLIC_WEB3FORMS_ACCESS_KEY } from '$env/static/public';
-	import Heading from './Heading.svelte';
-	import Section from './Section.svelte';
+	import Heading from '../Heading.svelte';
+	import Section from '../Section.svelte';
 
 	let name = $state('');
 	let email = $state('');
@@ -34,16 +34,17 @@
 	}
 </script>
 
-<Section id="contact" class="flex flex-col items-center justify-center">
-	<Heading level={2} classes="mb-8 text-3xl text-cyan-500">Get In Touch</Heading>
+<Section id="contact">
+	<div class="flex flex-col items-center rounded-xl border border-cyan-400/50 bg-gray-900 p-8 shadow-lg shadow-cyan-400/33">
+		<Heading level={2} classes="mb-8 text-3xl text-cyan-400">Get In Touch</Heading>
 
-	{#if success}
-		<p class="text-cyan-400">Thanks for reaching out!</p>
-	{/if}
+		{#if success}
+			<p class="text-cyan-400">Thanks for reaching out!</p>
+		{/if}
 
-	{#if error}
-		<p class="text-red-400">Something went wrong. Please try again.</p>
-	{/if}
+		{#if error}
+			<p class="text-red-400">Something went wrong. Please try again.</p>
+		{/if}
 
 	<form class="flex w-full flex-col items-start justify-center gap-4" onsubmit={handleSubmit}>
 		<label class="flex w-full flex-col items-start justify-center gap-2">
@@ -51,7 +52,7 @@
 			<input
 				type="text"
 				name="name"
-				class="min-w-full rounded bg-gray-300 p-4 text-xs text-black md:min-w-80"
+				class="min-w-full rounded bg-white p-4 text-xs text-gray-900 border border-white md:min-w-80"
 				bind:value={name}
 				required
 			/>
@@ -62,7 +63,7 @@
 			<input
 				type="email"
 				name="email"
-				class="min-w-full rounded bg-gray-300 p-4 text-xs text-black md:min-w-80"
+				class="min-w-full rounded bg-white p-4 text-xs text-gray-900 border border-white md:min-w-80"
 				bind:value={email}
 				required
 			/>
@@ -71,7 +72,7 @@
 		<label class="flex w-full flex-col items-start justify-center gap-2">
 			Message
 			<textarea
-				class="m:min-w-xl min-h-80 min-w-full rounded bg-gray-300 p-4 text-xs text-black"
+				class="m:min-w-xl min-h-80 min-w-full rounded bg-white p-4 text-xs text-gray-900 border border-white"
 				name="message"
 				bind:value={message}
 				required
@@ -86,4 +87,5 @@
 			>
 		</div>
 	</form>
+	</div>
 </Section>
