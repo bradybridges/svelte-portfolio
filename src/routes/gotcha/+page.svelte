@@ -19,17 +19,17 @@
 
 			<p class="text-xs">
 				This is due to you already being on this website when clicking the view live
-				application link for this website.
+				application link on the previous page.
 			</p>
 		</div>
 
 		<p>
 			At BB Dev&trade; we strive to provide our users with the best application possible. We
-			apologize for any inconvenience this may have caused you. Our engineering team is
+			apologize for any inconvenience, or lack of amusement, that this may have caused you. Our engineering team is
 			investigating the issue and expects to have a resolution soon. Some may consider this a
 			joke, others may not. We would like to assure you that we take this distinction in
 			comedic preferences very seriously. We sympathize with those who think this is too
-			nerdy, or downright dumb, to be funny. Check our <Link
+			nerdy, or down-right dumb, to be funny. Check our <Link
 				url="/status"
 				showIcon={false}
 				target={false}
