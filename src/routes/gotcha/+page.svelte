@@ -1,13 +1,16 @@
 <script lang="ts">
-	import favicon from '$lib/assets/favicon.svg';
 	import Heading from '../../components/Heading.svelte';
 	import Link from '../../components/Link.svelte';
 	import Section from '../../components/Section.svelte';
 </script>
 
 <svelte:head>
-	<link rel="icon" type="image/svg+xml" href={favicon} />
 	<title>Brady Bridges | Joke Master</title>
+	<meta
+		name="description"
+		content="You've been caught! Brady Bridges' portfolio has an Easter egg for anyone who tries to view the Portfolio project's live site."
+	/>
+	<meta name="robots" content="noindex" />
 </svelte:head>
 
 <Section>
@@ -29,7 +32,7 @@
 			investigating the issue and expects to have a resolution soon. Some may consider this a
 			joke, others may not. We would like to assure you that we take this distinction in
 			comedic preferences very seriously. We sympathize with those who think this is too
-			nerdy, or down-right dumb, to be funny. Check our <Link
+			nerdy, or down-right dumb, to be considered funny. Check our <Link
 				url="/status"
 				showIcon={false}
 				target={false}

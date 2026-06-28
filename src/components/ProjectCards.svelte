@@ -2,6 +2,7 @@
 	import { resolve } from '$app/paths';
 	import { projects } from '$lib/projects';
 	import Heading from './Heading.svelte';
+	import Image from './Image.svelte';
 
 	const positionClass: Record<string, string> = {
 		top: 'object-top',
@@ -15,8 +16,8 @@
 		'h-48',
 		'w-full',
 		'object-cover',
-		project.position ? positionClass[project.position] : undefined
-	]}
+		project.position ? positionClass[project.position] : 'object-center'
+	].join(' ')}
 
 	{#if !project.hidden}
 		<div
@@ -31,7 +32,12 @@
 						? 'Github repository'
 						: 'live site'}"
 				>
-					<img class={imageClasses} src={project.image} alt={project.name} />
+					<Image
+						publicId={project.image}
+						alt="{project.name} project preview"
+						class={imageClasses}
+						sizes="(min-width: 1024px) calc(33vw - 32px), (min-width: 768px) calc(50vw - 32px), 100vw"
+					/>
 				</a>
 
 				{#if project.githubUrl}
@@ -81,6 +87,7 @@
 				<div class="mt-auto flex w-full justify-center">
 					<a
 						href={resolve(`/projects/${project.slug}`)}
+						aria-label="Read more about {project.name}"
 						class="text-s mt-6 min-w-32 cursor-pointer rounded border border-cyan-400 px-4 py-1.5 text-center text-sm text-cyan-400 transition-colors hover:bg-cyan-400/10"
 					>
 						Read More

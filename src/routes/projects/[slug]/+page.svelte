@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Heading from '../../../components/Heading.svelte';
+	import Image from '../../../components/Image.svelte';
 	import Link from '../../../components/Link.svelte';
 	import Section from '../../../components/Section.svelte';
 	let { data } = $props();
@@ -11,16 +12,25 @@
 		bottom: 'object-bottom'
 	};
 
-	const imageClasses = $derived([
-		'h-100',
-		'w-full',
-		'object-cover',
-		data.project.position ? positionClass[data.project.position] : undefined
-	]);
+	const metaDescription = $derived(
+		data.project.description.length > 160
+			? data.project.description.slice(0, 157).trimEnd() + '...'
+			: data.project.description
+	);
+
+	const imageClasses = $derived(
+		[
+			'h-100',
+			'w-full',
+			'object-cover',
+			data.project.position ? positionClass[data.project.position] : 'object-center'
+		].join(' ')
+	);
 </script>
 
 <svelte:head>
 	<title>Brady Bridges | {data.project.name}</title>
+	<meta name="description" content={metaDescription} />
 </svelte:head>
 
 {#snippet details(classes: string)}
@@ -84,10 +94,13 @@
 		<div class="flex flex-col gap-4 lg:flex-row">
 			<div class="lg:basis-3/4">
 				<div class="mb-4 overflow-hidden rounded border border-gray-700 lg:mb-16">
-					<img
+					<Image
+						publicId={data.project.image}
+						alt="{data.project.name} project screenshot"
 						class={imageClasses}
-						src={data.project.image}
-						alt={`${data.project.name} thumbnail`}
+						sizes="(min-width: 1024px) 75vw, 100vw"
+						fetchpriority="high"
+						loading="eager"
 					/>
 				</div>
 
