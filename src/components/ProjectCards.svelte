@@ -19,13 +19,17 @@
 		project.position ? positionClass[project.position] : 'object-center'
 	].join(' ')}
 
+	{@const projectPageUrl = resolve(`/projects/${project.slug}`)}
+	{@const primaryUrl =
+		project.url.includes('gotcha') && project.githubUrl ? projectPageUrl : project.url}
+
 	{#if !project.hidden}
 		<div
 			class="flex h-auto basis-full flex-col overflow-hidden rounded-xl border border-cyan-400/50 bg-gray-900 md:basis-[calc(50%-24px)] lg:basis-[calc(33%-24px)]"
 		>
 			<div class="relative">
 				<a
-					href={project.url}
+					href={primaryUrl}
 					class="mb-2 border-b border-b-emerald-400 pb-4"
 					target="_blank"
 					aria-label="Visit {project.name} {project.url.includes('github')
@@ -67,10 +71,15 @@
 			</div>
 
 			<div class="flex h-full flex-col items-start gap-4 p-4">
-				<div class="w-full">
+				<a
+					class="w-full"
+					href={primaryUrl}
+					target="_blank"
+					aria-label={`Visit ${project.name} page`}
+				>
 					<Heading level={3} classes="mb-2 text-emerald-400">{project.name}</Heading>
 					<p class="text-s line-clamp-5">{project.description}</p>
-				</div>
+				</a>
 
 				<div class="mb-4 w-full">
 					<Heading level={4} classes="mb-4">Built With</Heading>
@@ -86,7 +95,7 @@
 
 				<div class="mt-auto flex w-full justify-center">
 					<a
-						href={resolve(`/projects/${project.slug}`)}
+						href={projectPageUrl}
 						aria-label="Read more about {project.name}"
 						class="text-s mt-6 min-w-32 cursor-pointer rounded border border-cyan-400 px-4 py-1.5 text-center text-sm text-cyan-400 transition-colors hover:bg-cyan-400/10"
 					>
