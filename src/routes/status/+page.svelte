@@ -25,12 +25,16 @@
 			<ul class="flex list-disc flex-col gap-4 px-4">
 				<li>
 					On {currentDate} our engineering team uncovered an influx of distasteful jokes impacting
-					the US-East-1 cluster. Our team is monitoring the situation closely and workly as
+					the US-East-1 cluster. Our team is monitoring the situation closely and is working as
 					quickly as possible to resolve the issue.
 				</li>
 				<li>
-					We anticipate degraded probabilities of securing employment until the issue is
+					We anticipate degraded probabilities of securing a new software engineering role until the issue is
 					resolved and our systems stabalize.
+				</li>
+				<li>
+					Customers have brought to our attention that this website does not rely on
+					AWS infrastructure at all, questioning the veracify of our public statement.
 				</li>
 			</ul>
 		</div>
