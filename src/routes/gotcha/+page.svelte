@@ -19,7 +19,7 @@
 
 			<p class="text-xs">
 				This is due to you already being on this website when clicking the view live
-				application link for this website.
+				application link on the previous page.
 			</p>
 		</div>
 
