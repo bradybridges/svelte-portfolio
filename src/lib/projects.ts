@@ -39,6 +39,21 @@ export const projects: ProjectType[] = [
 		]
 	},
 	{
+		name: 'Portfolio',
+		description:
+			'The site you are looking at right now. A fast, statically-typed portfolio built with SvelteKit and Svelte 5 runes, styled with TailwindCSS v4, and deployed as a Node.js server. Features a dynamic project detail system, a working contact form, and Cloudinary-hosted imagery, all without a CMS or database. Deployed on a VPS(hetzner) that I configured from scratch. Coolify handles building and deploying updates to the site whenever a change is merged to the production branch.',
+		motivation:
+			"I've been hearing more and more about SvelteKit and have wanted to take it for a spin. I have also been putting off making a portfolio site for several years. I figured, what better time than now to make one? As a developer who works with React primarily, I find it valuable to stay up to speed with other modern frameworks to see how common patterns like reactivity, routing, SSR, state and side-effects are handled. In order to know what the best tool for a job is, you have to use different tools to gain expertise and insight into their practical applications. I had fun with this project, as you may find, and will definitely be adding Svelte to toolbox. Throughout this project, I found Svelte to be a great option with several advantageous qualities when stacked up against React.",
+		technical:
+			"The project is built on SvelteKit with Svelte 5 runes mode enforced project-wide, which means every reactive value is explicit and the component model is predictable. TailwindCSS v4 is configured through the Vite plugin rather than a config file, which keeps the toolchain lean. The project detail pages are driven by a single static TypeScript array in `src/lib/projects.ts`: SvelteKit's file-based routing resolves each slug at build time, and the server load function throws a 404 for any slug that doesn't match. The contact form is handled by a SvelteKit form action on the same route, keeping the form POST behavior native and progressively enhanced. Images are hosted on Cloudinary and referenced through a small utility that constructs URLs from public IDs, which means swapping delivery settings or transformations is a one-line change. In the future I may configure a CMS for content and add blogs, but for now static files are serving their purpose.",
+		url: '/gotcha',
+		githubUrl: 'https://github.com/bradybridges/svelte-portfolio',
+		slug: 'portfolio',
+		image: cloudinaryUrl('portfolio'),
+		badges: ['Svelte 5', 'SvelteKit', 'TypeScript', 'TailwindCSS', 'Cloudinary', 'Node'],
+		position: 'top'
+	},
+	{
 		name: 'Rocket Launch Visualizer',
 		description:
 			"Getting a rocket to orbit isn't just about going up, it's about going fast in exactly the right direction at exactly the right time. This interactive visualizer lets you manipulate launch and orbital parameters and watch in real time how each decision shapes a flight path's viability and efficiency. A must-try for Kerbal Space Program veterans and rocket enthusiasts alike.",
@@ -90,7 +105,7 @@ export const projects: ProjectType[] = [
 	{
 		name: 'Password Manager',
 		description:
-			'A local-first, cross-platform desktop password manager with no cloud dependency and no subscription fee. Credentials live in named vaults on disk, each encrypted with a master password using PBKDF2HMAC key derivation and Fernet authenticated encryption. The tkinter interface provides a clean credential browser with a list pane, detail panel, and inline add/edit dialogs — all without leaving the desktop.',
+			'A local-first, cross-platform desktop password manager with no cloud dependency and no subscription fee. Credentials live in named vaults on disk, each encrypted with a master password using PBKDF2HMAC key derivation and Fernet authenticated encryption. The tkinter interface provides a clean credential browser with a list pane, detail panel, and inline add/edit dialogs, all without leaving the desktop.',
 		motivation:
 			"After several breaches of password management applications I've used in the past, I had to go oldschool to protect my credentials. For a time I was manually encrypting and maintaining my credentials from the CLI using OpenSSL. This was a solution I was happy with at first, and left me in position where I felt my sensitive data was secure and less likely to be exposed. After I time this became cumbersone, and managing passwords took more and more time. I've wanted to fiddle around with Python more, and took on this application as a good opportunity to learn more about the technology and building desktop graphical interfaces. My goal was to create a completely offline, portable, and secure password management application to give me more control and confidence over the security of my sensitive credentials.",
 		technical:
@@ -100,21 +115,6 @@ export const projects: ProjectType[] = [
 		slug: 'password-manager',
 		image: cloudinaryUrl('password-manager'),
 		badges: ['Python', 'Tkinter', 'Cryptography']
-	},
-	{
-		name: 'Portfolio',
-		description:
-			'The site you are looking at right now. A fast, statically-typed portfolio built with SvelteKit and Svelte 5 runes, styled with TailwindCSS v4, and deployed as a Node.js server. Features a dynamic project detail system, a working contact form, and Cloudinary-hosted imagery — all without a CMS or database.',
-		motivation:
-			"I wanted a portfolio that felt like a piece of software, not a template. Most portfolio sites I saw were either generic page-builder output or React SPAs that shipped a megabyte of JavaScript to render three paragraphs of text. I had been following Svelte's development for a while and liked where the runes model was headed, so I used this as my excuse to build with it properly from the start. The goal was something that was fast to load, easy to maintain, and genuinely reflected the kind of work I do: small, opinionated, and built to last without a lot of dependencies.",
-		technical:
-			"The project is built on SvelteKit with Svelte 5 runes mode enforced project-wide, which means every reactive value is explicit and the component model is predictable. TailwindCSS v4 is configured through the Vite plugin rather than a config file, which keeps the toolchain lean. The project detail pages are driven by a single static TypeScript array in `src/lib/projects.ts`: SvelteKit's file-based routing resolves each slug at build time, and the server load function throws a 404 for any slug that doesn't match. The contact form is handled by a SvelteKit form action on the same route, keeping the form POST behavior native and progressively enhanced. Images are hosted on Cloudinary and referenced through a small utility that constructs URLs from public IDs, which means swapping delivery settings or transformations is a one-line change.",
-		url: '/gotcha',
-		githubUrl: 'https://github.com/bradybridges/svelte-portfolio',
-		slug: 'portfolio',
-		image: cloudinaryUrl('portfolio'),
-		badges: ['Svelte 5', 'SvelteKit', 'TypeScript', 'TailwindCSS', 'Cloudinary', 'Node'],
-		position: 'top'
 	},
 	{
 		name: 'Dotfiles',

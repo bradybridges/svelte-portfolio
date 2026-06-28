@@ -1,42 +1,86 @@
-# sv
+# svelte-portfolio
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Personal portfolio site built with SvelteKit and Svelte 5 runes, styled with TailwindCSS v4, and deployed as a Node.js server.
 
-## Creating a project
+## Tech Stack
 
-If you're seeing this, you've probably already done this step. Congrats!
+- [SvelteKit](https://svelte.dev/docs/kit) + [Svelte 5](https://svelte.dev/docs/svelte) (runes mode)
+- [TailwindCSS v4](https://tailwindcss.com/) (via Vite plugin, no config file)
+- [@sveltejs/adapter-node](https://github.com/sveltejs/kit/tree/main/packages/adapter-node) for Node.js deployment
+- [Cloudinary](https://cloudinary.com/) for image hosting
+- [Web3Forms](https://web3forms.com/) for the contact form
 
-```sh
-# create a new project
-npx sv create my-app
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+
+### Setup
+
+```bash
+git clone https://github.com/bradybridges/svelte-portfolio.git
+cd svelte-portfolio
+npm install
 ```
 
-To recreate this project with the same configuration:
+### Environment Variables
 
-```sh
-# recreate this project
-npx sv@0.15.1 create --template minimal --types ts --add prettier eslint tailwindcss="plugins:none" --install npm svelte-portfolio
+Create a `.env` file in the project root:
+
+```env
+PUBLIC_CLOUDINARY_CLOUD_NAME=your_cloud_name
+PUBLIC_WEB3FORMS_ACCESS_KEY=your_access_key
 ```
 
-## Developing
+- **Cloudinary** — sign up at [cloudinary.com](https://cloudinary.com/) and use your cloud name. Project images are referenced by public ID in `src/lib/projects.ts`.
+- **Web3Forms** — sign up at [web3forms.com](https://web3forms.com/) to get a free access key for the contact form.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+### Development
 
-```sh
+```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+### Commands
 
-To create a production version of your app:
+| Command           | Description                            |
+| ----------------- | -------------------------------------- |
+| `npm run dev`     | Start dev server                       |
+| `npm run build`   | Production build (outputs to `build/`) |
+| `npm run preview` | Preview production build               |
+| `npm run check`   | Type-check with svelte-check           |
+| `npm run lint`    | Prettier + ESLint checks               |
+| `npm run format`  | Auto-format with Prettier              |
 
-```sh
+## Project Structure
+
+```
+src/
+├── components/         # Reusable components (Section, Heading, Link)
+├── lib/
+│   ├── projects.ts     # Project data array (add/edit projects here)
+│   ├── roles.ts        # Experience/roles data
+│   └── cloudinary.ts   # Cloudinary URL utility
+└── routes/
+    ├── +page.svelte        # Home page (hero, projects, experience, contact)
+    ├── +page.server.ts     # Contact form POST action
+    └── projects/[slug]/    # Dynamic project detail pages
+```
+
+## Customization
+
+**Adding a project:** Add an entry to the `projects` array in `src/lib/projects.ts`. Each project needs at minimum a `name`, `description`, `url`, `slug`, `image`, and `badges` array. The `slug` determines the URL at `/projects/[slug]`.
+
+**Adding a role:** Add an entry to the `roles` array in `src/lib/roles.ts`.
+
+## Deployment
+
+The project uses `@sveltejs/adapter-node`, which produces a standalone Node.js server in `build/`.
+
+```bash
 npm run build
+node build
 ```
 
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+Set the `PORT` environment variable to change the default port (3000).

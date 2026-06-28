@@ -7,17 +7,15 @@
 
 <Section id="experience">
 	<div class="flex flex-col gap-8">
-		<Heading level={2} classes="text-cyan-400">
-			Professional Experience
-		</Heading>
+		<Heading level={2} classes="text-cyan-400">Professional Experience</Heading>
 
 		{#each roles as role (role.title)}
-			<div class="rounded-xl bg-gray-900 p-4 border border-cyan-400/50">
+			<div class="rounded-xl border border-cyan-400/50 bg-gray-900 p-4">
 				<div class="role-card relative flex flex-col items-start justify-center gap-2 pl-8">
 					<span class="absolute top-0 left-0 h-3 w-3 rounded-full bg-cyan-400"></span>
 					<span class="absolute bottom-0 left-0 h-3 w-3 rounded-full bg-cyan-400"></span>
 
-					<div class="mb-4 lg:mg-8 w-full">
+					<div class="lg:mg-8 mb-4 w-full">
 						<div
 							class="flex w-full flex-col items-start justify-between md:flex-row md:items-center"
 						>

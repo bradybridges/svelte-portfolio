@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Icon from "@iconify/svelte";
+	import Icon from '@iconify/svelte';
 
 	interface Props {
 		url: string;
@@ -14,7 +14,11 @@
 
 <a
 	href={url}
-	class={['transition-colors hover:text-cyan-400', showIcon && 'flex gap-2 items-center', classes]}
+	class={[
+		'transition-colors hover:text-cyan-400',
+		showIcon && 'flex items-center gap-2',
+		classes
+	]}
 	aria-label={ariaLabel ? ariaLabel : null}
 	target={target ? target : null}
 >
