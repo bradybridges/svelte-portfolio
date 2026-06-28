@@ -1,5 +1,6 @@
 <script lang="ts">
 	import './layout.css';
+	import favicon from '../lib/assets/favicon.svg';
 	import Link from '../components/Link.svelte';
 	import Icon from '@iconify/svelte';
 	import { afterNavigate } from '$app/navigation';
@@ -23,6 +24,10 @@
 	let showModeNotification = $state(false);
 </script>
 
+<svelte:head>
+	<link rel="icon" type="image/svg+xml" href={favicon} />
+</svelte:head>
+
 <svelte:window onscroll={onScroll} />
 
 <div class="text-gray-300">
@@ -34,7 +39,7 @@
 		class:header-hidden={hidden}
 	>
 		<span class="flex flex-col gap-1">
-			<a href="/" class="rounded bg-cyan-500 p-1">
+			<a href="/" aria-label="Brady Bridges — home" class="rounded bg-cyan-500 p-1">
 				<span class="font-semibold text-white uppercase">Brady Bridges</span>
 			</a>
 
@@ -62,6 +67,7 @@
 			<button
 				class="absolute top-4 right-4 cursor-pointer md:static"
 				onclick={() => (showModeNotification = true)}
+				aria-label="Toggle dark mode"
 			>
 				<Icon icon="circum:dark" height="24" />
 			</button>
@@ -83,6 +89,7 @@
 					<button
 						class="mt-6 cursor-pointer rounded border border-cyan-400 px-4 py-1.5 text-sm text-cyan-400 transition-colors hover:bg-cyan-400/10"
 						onclick={() => (showModeNotification = false)}
+						aria-label="Close dialog"
 					>
 						Acknowledge Mistake
 					</button>
@@ -98,19 +105,19 @@
 			<a
 				href="https://github.com/bradybridges"
 				target="_blank"
-				aria-label="Visit Brady's Github profile"
+				aria-label="Visit Brady's GitHub profile"
 				class="hover:animate-pulse"
 			>
-				<Icon icon="mdi:linkedin" height="32" />
+				<Icon icon="mdi:github" height="32" />
 			</a>
 
 			<a
 				href="https://linkedin.com/in/brady-bridges"
 				target="_blank"
-				aria-label="Visit Brady's LinkedIn page"
+				aria-label="Visit Brady's LinkedIn profile"
 				class="hover:animate-pulse"
 			>
-				<Icon icon="mdi:github" height="32" />
+				<Icon icon="mdi:linkedin" height="32" />
 			</a>
 		</div>
 	</footer>

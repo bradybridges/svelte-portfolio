@@ -90,7 +90,8 @@
 				<button
 					class="text-s min-w-32 cursor-pointer rounded border border-cyan-400 p-2 font-semibold text-gray-300 hover:animate-pulse disabled:opacity-50"
 					type="submit"
-					disabled={success || !inputsHaveData}>Submit</button
+					disabled={success || !inputsHaveData}
+					aria-label="Submit contact form">Submit</button
 				>
 			</div>
 		</form>

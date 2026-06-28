@@ -1,10 +1,9 @@
 <script lang="ts">
-	import { cloudinaryUrl } from '$lib/cloudinary';
+	import Image from '../Image.svelte';
 	import Heading from '../Heading.svelte';
 	import Section from '../Section.svelte';
 	import ScrollingBadges from '../ScrollingBadges.svelte';
 
-	const headshot = cloudinaryUrl('headshot2');
 	const badges = [
 		'JavaScript',
 		'TypeScript',
@@ -42,8 +41,15 @@
 <Section>
 	<div class="rounded-xl border border-cyan-400/10 bg-gray-900 p-4 shadow-lg shadow-cyan-400/33">
 		<div class="hero-container gap-4 lg:grid lg:grid-cols-[1fr_2fr]">
-			<div class="overflow-hidden rounded-xl">
-				<img src={headshot} alt="headshot" />
+			<div class="aspect-3/4 overflow-hidden rounded-xl">
+				<Image
+					publicId="headshot2"
+					alt="Brady Bridges"
+					class="h-full w-full object-cover"
+					loading="eager"
+					fetchpriority="high"
+					sizes="(min-width: 1024px) 30vw, 100vw"
+				/>
 			</div>
 
 			<div class="flex w-full flex-col items-center justify-center gap-2 px-2 py-8 lg:py-0">

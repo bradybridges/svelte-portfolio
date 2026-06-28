@@ -13,8 +13,6 @@ type ProjectType = {
 	hidden?: boolean;
 };
 
-import { cloudinaryUrl } from '$lib/cloudinary';
-
 export const projects: ProjectType[] = [
 	{
 		name: 'EasyRef',
@@ -26,7 +24,7 @@ export const projects: ProjectType[] = [
 			"Keeping campaigns, trackers, and views synchronized, while also limiting excessive network requests presented a challenge in this project. Not only did I want to to limit uneccessary requests to the backend, but it was also important to keep user experience seamless and snappy. For this I used Redux Toolkit, which comes with all the solutions I needed out of the box. By leveraging Redux, I was able to define the shape of the state of the application and APIs providing an organized, declarative structure to the application. With built in caching mechanisms, react-query integration, and global state management, Redux saved me from reinventing the wheel. This tool provides robust functionality to manage and manipulate data across the application, leaving users with an application that loads quickly, caches data effectively, and gets data where it's needed efficiently.",
 		url: 'https://easyref.bbdev.cloud',
 		slug: 'easy-ref',
-		image: cloudinaryUrl('easyref-home'),
+		image: 'easyref-home',
 		badges: [
 			'React',
 			'Typescript',
@@ -49,7 +47,7 @@ export const projects: ProjectType[] = [
 		url: '/gotcha',
 		githubUrl: 'https://github.com/bradybridges/svelte-portfolio',
 		slug: 'portfolio',
-		image: cloudinaryUrl('portfolio'),
+		image: 'portfolio',
 		badges: ['Svelte 5', 'SvelteKit', 'TypeScript', 'TailwindCSS', 'Cloudinary', 'Node'],
 		position: 'top'
 	},
@@ -64,7 +62,7 @@ export const projects: ProjectType[] = [
 		technical:
 			'Generating a flight path means integrating forces like thrust, gravity, and drag across thousands of time steps for every combination of input parameters. The challenge was making each parameter adjustment feel instant even though recomputing the full trajectory is expensive. I solved this with memoization: trajectory results are keyed by their input parameters and cached, so only the affected calculation reruns when a single variable changes. D3 handles rendering, but structuring the data flow so transitions fire only on real changes, not on every reactive update, was the other half of keeping the visualizer smooth under continuous user input.',
 		slug: 'rocket-launch',
-		image: cloudinaryUrl('launch-desktop'),
+		image: 'launch-desktop',
 		badges: ['React', 'TailwindCSS', 'D3', 'Docker'],
 		position: 'top'
 	},
@@ -79,7 +77,7 @@ export const projects: ProjectType[] = [
 		technical:
 			"The two hardest parts were encryption and distribution. For end-to-end encryption I used Node's built-in crypto module, which meant making decisions about key exchange and message framing before a single byte goes over the wire. Getting that right without a third-party library forced me to understand what encrypted actually means in practice. Docker packaging keeps the server and client environment consistent so anyone can spin up their own instance with a single command.",
 		slug: 'websocket-chat',
-		image: cloudinaryUrl('ws-chat'),
+		image: 'ws-chat',
 		badges: ['Node', 'Websockets', 'Docker', 'Crypto'],
 		position: 'top'
 	},
@@ -98,7 +96,7 @@ export const projects: ProjectType[] = [
 		technical:
 			"The interesting part wasn't the CLI logic; it was making the package feel like a first-class NPM citizen. That meant setting up the bin field correctly so the command resolves globally after install, handling shebang lines so Node runs the entry point without the user knowing anything about the internals, and building a GitHub Actions pipeline that publishes a new version to NPM automatically on tagged releases. Getting the release pipeline right meant I never have to think about publishing manually. Tag the commit, and the rest happens.",
 		slug: 'todo-cli',
-		image: cloudinaryUrl('todo-cli'),
+		image: 'todo-cli',
 		badges: ['NPM', 'Chalk', 'Commander', 'Github Actions', 'Automated Releases'],
 		position: 'top'
 	},
@@ -113,7 +111,7 @@ export const projects: ProjectType[] = [
 		url: 'https://github.com/bradybridges/password-manager',
 		githubUrl: 'https://github.com/bradybridges/password-manager',
 		slug: 'password-manager',
-		image: cloudinaryUrl('password-manager'),
+		image: 'password-manager',
 		badges: ['Python', 'Tkinter', 'Cryptography']
 	},
 	{
@@ -138,7 +136,7 @@ export const projects: ProjectType[] = [
 			'macOS',
 			'Linux'
 		],
-		image: cloudinaryUrl('dotfiles'),
+		image: 'dotfiles',
 		position: 'top',
 		slug: 'dotfiles',
 		hidden: true

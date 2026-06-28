@@ -1,5 +1,4 @@
 <script lang="ts">
-	import favicon from '$lib/assets/favicon.svg';
 	import Heading from '../../components/Heading.svelte';
 	import Section from '../../components/Section.svelte';
 
@@ -7,8 +6,12 @@
 </script>
 
 <svelte:head>
-	<link rel="icon" type="image/svg+xml" href={favicon} />
 	<title>Brady Bridges | Status</title>
+	<meta
+		name="description"
+		content="Status page for Brady Bridges' portfolio site — tracking all critical incidents with the appropriate level of engineering rigor."
+	/>
+	<meta name="robots" content="noindex" />
 </svelte:head>
 
 <Section>
