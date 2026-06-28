@@ -102,6 +102,21 @@ export const projects: ProjectType[] = [
 		badges: ['Python', 'Tkinter', 'Cryptography']
 	},
 	{
+		name: 'Portfolio',
+		description:
+			'The site you are looking at right now. A fast, statically-typed portfolio built with SvelteKit and Svelte 5 runes, styled with TailwindCSS v4, and deployed as a Node.js server. Features a dynamic project detail system, a working contact form, and Cloudinary-hosted imagery — all without a CMS or database.',
+		motivation:
+			"I wanted a portfolio that felt like a piece of software, not a template. Most portfolio sites I saw were either generic page-builder output or React SPAs that shipped a megabyte of JavaScript to render three paragraphs of text. I had been following Svelte's development for a while and liked where the runes model was headed, so I used this as my excuse to build with it properly from the start. The goal was something that was fast to load, easy to maintain, and genuinely reflected the kind of work I do: small, opinionated, and built to last without a lot of dependencies.",
+		technical:
+			"The project is built on SvelteKit with Svelte 5 runes mode enforced project-wide, which means every reactive value is explicit and the component model is predictable. TailwindCSS v4 is configured through the Vite plugin rather than a config file, which keeps the toolchain lean. The project detail pages are driven by a single static TypeScript array in `src/lib/projects.ts`: SvelteKit's file-based routing resolves each slug at build time, and the server load function throws a 404 for any slug that doesn't match. The contact form is handled by a SvelteKit form action on the same route, keeping the form POST behavior native and progressively enhanced. Images are hosted on Cloudinary and referenced through a small utility that constructs URLs from public IDs, which means swapping delivery settings or transformations is a one-line change.",
+		url: '/gotcha',
+		githubUrl: 'https://github.com/bradybridges/svelte-portfolio',
+		slug: 'portfolio',
+		image: cloudinaryUrl('portfolio'),
+		badges: ['Svelte 5', 'SvelteKit', 'TypeScript', 'TailwindCSS', 'Cloudinary', 'Node'],
+		position: 'top'
+	},
+	{
 		name: 'Dotfiles',
 		description:
 			'A single source of truth for every config file across Linux and macOS, deployed in minutes via GNU Stow. Covers the full development environment from the window manager down: Neovim, Zsh, Tmux, and both a Hyprland Wayland stack and an i3 X11 stack for Linux. Clone it, stow the packages you need, and be productive on any machine without touching a settings menu.',

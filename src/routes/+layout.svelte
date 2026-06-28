@@ -3,8 +3,9 @@
 	import Link from '../components/Link.svelte';
 	import Icon from '@iconify/svelte';
 	import { afterNavigate } from '$app/navigation';
+	import { page } from '$app/state';
 
-	let { children, params } = $props();
+	let { children } = $props();
 
 	afterNavigate(() => {
 		window.scrollTo({ top: 0, behavior: 'instant' });
@@ -45,7 +46,7 @@
 
 		<div class="flex flex-nowrap gap-4">
 			<nav class="flex gap-3 md:mr-4">
-				{#if params.slug}
+				{#if page.url.pathname !== '/'}
 					<Link url="/" label="Go to home page" ariaLabel="Navigate to home page" />
 				{:else}
 					<Link
