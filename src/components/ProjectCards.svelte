@@ -23,7 +23,6 @@
 			class="flex h-auto basis-full flex-col overflow-hidden rounded-xl border border-cyan-400/50 bg-gray-900 md:basis-[calc(50%-24px)] lg:basis-[calc(33%-24px)]"
 		>
 			<div class="relative">
-				<!-- eslint-disable svelte/no-navigation-without-resolve -- external URL -->
 				<a
 					href={project.url}
 					class="mb-2 border-b border-b-emerald-400 pb-4"
@@ -34,10 +33,8 @@
 				>
 					<img class={imageClasses} src={project.image} alt={project.name} />
 				</a>
-				<!-- eslint-enable svelte/no-navigation-without-resolve -->
 
 				{#if project.githubUrl}
-					<!-- eslint-disable svelte/no-navigation-without-resolve -- external URL -->
 					<a
 						href={project.githubUrl}
 						target="_blank"
@@ -60,7 +57,6 @@
 							></path></svg
 						>
 					</a>
-					<!-- eslint-enable svelte/no-navigation-without-resolve -->
 				{/if}
 			</div>
 
