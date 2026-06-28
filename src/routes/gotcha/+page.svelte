@@ -12,9 +12,16 @@
 
 <Section>
 	<div class="flex w-full flex-col flex-nowrap gap-8">
-		<Heading level={1} classes="text-rose-400 border border-rose-400 p-4 rounded-xl">
-			WARNING: You have been the subject of a cruel joke!
-		</Heading>
+		<div class="flex flex-col gap-4 rounded-xl border border-rose-400 p-4">
+			<Heading level={1} classes="text-rose-400">
+				WARNING: You have been the subject of a cruel joke!
+			</Heading>
+
+			<p class="text-xs">
+				This is due to you already being on this website when clicking the view live
+				application link for this website.
+			</p>
+		</div>
 
 		<p>
 			At BB Dev&trade; we strive to provide our users with the best application possible. We
