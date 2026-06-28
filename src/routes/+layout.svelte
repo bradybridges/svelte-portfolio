@@ -38,16 +38,14 @@
 		]}
 		class:header-hidden={hidden}
 	>
-		<span class="flex flex-col gap-1">
-			<a href="/" aria-label="Brady Bridges — home" class="rounded bg-cyan-500 p-1">
-				<span class="font-semibold text-white uppercase">Brady Bridges</span>
-			</a>
-
-			<span
-				class="rounded border border-cyan-400 text-center text-xs shadow shadow-cyan-400/33"
-				>Frontend Engineer</span
-			>
-		</span>
+		<a
+			href="/"
+			aria-label="Brady Bridges — home"
+			class="flex flex-col gap-0.5 border-l-2 border-cyan-400 pl-3 transition-opacity hover:opacity-75"
+		>
+			<span class="text-sm font-bold uppercase tracking-wider text-white">Brady Bridges</span>
+			<span class="text-xs uppercase tracking-[0.2em] text-cyan-400">Frontend Engineer</span>
+		</a>
 
 		<div class="flex flex-nowrap gap-4">
 			<nav class="flex gap-3 md:mr-4">
