@@ -8,7 +8,7 @@
 
 <svelte:head>
 	<link rel="icon" type="image/svg+xml" href={favicon} />
-	<title>Brady Bridges | Operational Status</title>
+	<title>Brady Bridges | Status</title>
 </svelte:head>
 
 <Section>
@@ -33,8 +33,7 @@
 					until the issue is resolved and our systems stabalize.
 				</li>
 				<li>
-					Customers have brought to our attention that this issue has nothing to due with
-					AWS, bringing the veracity of our public statements into question.
+					Customers have brought to our attention that this issue is "completely unrelated to AWS", bringing the veracity of our public statements into question.
 				</li>
 			</ul>
 		</div>
