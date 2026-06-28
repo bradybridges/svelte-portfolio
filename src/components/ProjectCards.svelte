@@ -31,7 +31,7 @@
 				<a
 					href={primaryUrl}
 					class="mb-2 border-b border-b-emerald-400 pb-4"
-					target="_blank"
+					target={!project.url.includes('gotcha') ? "_blank" : ""}
 					aria-label="Visit {project.name} {project.url.includes('github')
 						? 'Github repository'
 						: 'live site'}"
