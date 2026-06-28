@@ -13,7 +13,10 @@
 			<div class="flex flex-col gap-4">
 				<div class="text-xl">
 					Recruitment Status:
-					<span class="ml-2 inline-block font-bold text-emerald-400 text-xl underline underline-offset-4">Open To Work</span>
+					<span
+						class="ml-2 inline-block text-xl font-bold text-emerald-400 underline underline-offset-4"
+						>Open To Work</span
+					>
 				</div>
 				<div class="text-xl">
 					Location:

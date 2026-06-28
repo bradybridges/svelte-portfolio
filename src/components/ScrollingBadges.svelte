@@ -3,7 +3,7 @@
 		badges,
 		duration = 20,
 		direction = 'normal',
-		pauseOnHover = true,
+		pauseOnHover = true
 	}: {
 		badges: string[];
 		duration?: number;

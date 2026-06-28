@@ -22,7 +22,7 @@
 				<span class="text-emerald-400">{currentDate}:</span> AWS outage impacting performance
 			</Heading>
 
-			<ul class="list-disc px-4 flex flex-col gap-4">
+			<ul class="flex list-disc flex-col gap-4 px-4">
 				<li>
 					On {currentDate} our engineering team uncovered an influx of distasteful jokes impacting
 					the US-East-1 cluster. Our team is monitoring the situation closely and workly as

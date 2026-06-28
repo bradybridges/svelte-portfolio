@@ -9,11 +9,11 @@
 
 <div
 	class={[
-		'flex flex-col md:flex-row flex-nowrap items-center justify-between gap-8 rounded-xl border border-emerald-400/30 bg-gray-900 p-4 text-center lg:text-left',
+		'flex flex-col flex-nowrap items-center justify-between gap-8 rounded-xl border border-emerald-400/30 bg-gray-900 p-4 text-center md:flex-row lg:text-left',
 		classes
 	]}
 >
-	<p class="lg:pl-4 font-medium">{descriptionText}</p>
+	<p class="font-medium lg:pl-4">{descriptionText}</p>
 
 	<!-- eslint-disable svelte/no-navigation-without-resolve -- external URL -->
 	<a

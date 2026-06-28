@@ -44,14 +44,14 @@ npm run dev
 
 ### Commands
 
-| Command | Description |
-|---|---|
-| `npm run dev` | Start dev server |
-| `npm run build` | Production build (outputs to `build/`) |
-| `npm run preview` | Preview production build |
-| `npm run check` | Type-check with svelte-check |
-| `npm run lint` | Prettier + ESLint checks |
-| `npm run format` | Auto-format with Prettier |
+| Command           | Description                            |
+| ----------------- | -------------------------------------- |
+| `npm run dev`     | Start dev server                       |
+| `npm run build`   | Production build (outputs to `build/`) |
+| `npm run preview` | Preview production build               |
+| `npm run check`   | Type-check with svelte-check           |
+| `npm run lint`    | Prettier + ESLint checks               |
+| `npm run format`  | Auto-format with Prettier              |
 
 ## Project Structure
 

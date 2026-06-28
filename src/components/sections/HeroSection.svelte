@@ -47,7 +47,7 @@
 			<div class="flex w-full flex-col items-center justify-center gap-2 px-2 py-8 lg:py-0">
 				<Heading level={2} classes="text-emerald-400">Hi, I'm Brady!</Heading>
 
-				<p class="p-4 text-center lg:text-left text-lg">
+				<p class="p-4 text-center text-lg lg:text-left">
 					Senior Frontend Engineer with 6+ years of experience building scalable,
 					high-performance web applications using React and TypeScript. Proven track
 					record of driving measurable business impact, including significant increases in
