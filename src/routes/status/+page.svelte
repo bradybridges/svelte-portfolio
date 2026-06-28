@@ -19,22 +19,22 @@
 
 		<div class="flex flex-col gap-8">
 			<Heading level={2}>
-				<span class="text-emerald-400">{currentDate}:</span> AWS outage impacting performance
+				<span class="text-emerald-400">{currentDate}:</span> AWS outage impacting job prospects
 			</Heading>
 
 			<ul class="flex list-disc flex-col gap-4 px-4">
 				<li>
 					On {currentDate} our engineering team uncovered an influx of distasteful jokes impacting
-					the US-East-1 cluster. Our team is monitoring the situation closely and is working as
-					quickly as possible to resolve the issue.
+					the US-East-1 cluster. Our team is monitoring the situation closely and is working
+					as quickly as possible to resolve the issue.
 				</li>
 				<li>
-					We anticipate degraded probabilities of securing a new software engineering role until the issue is
-					resolved and our systems stabalize.
+					We anticipate degraded probabilities of securing a new software engineering role
+					until the issue is resolved and our systems stabalize.
 				</li>
 				<li>
-					Customers have brought to our attention that this website does not rely on
-					AWS infrastructure at all, questioning the veracify of our public statement.
+					Customers have brought to our attention that this issue has nothing to due with
+					AWS, bringing the veracity of our public statements into question.
 				</li>
 			</ul>
 		</div>
