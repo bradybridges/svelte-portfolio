@@ -17,6 +17,7 @@
 	<Callout
 		descriptionText="My entire development environment version-controlled and deployable to any machine with a single command. Neovim, Tmux, Zsh, and two full Linux desktop stacks included."
 		linkText="Read More"
+		linkAriaLabel="Read more about my dotfiles"
 		url="/projects/dotfiles"
 		classes="w-full mt-10"
 	/>
