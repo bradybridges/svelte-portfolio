@@ -1,10 +1,15 @@
 <script lang="ts">
-	let {
-		descriptionText,
-		url,
-		linkText,
-		classes = ''
-	}: { descriptionText: string; url: string; linkText: string; classes?: string } = $props();
+	import Link from './Link.svelte';
+
+	type Props = {
+		descriptionText: string;
+		url: string;
+		linkText: string;
+		linkAriaLabel: string;
+		classes?: string;
+	};
+
+	let { descriptionText, url, linkText, linkAriaLabel, classes = '' }: Props = $props();
 </script>
 
 <div
@@ -15,10 +20,11 @@
 >
 	<p class="font-medium lg:pl-4">{descriptionText}</p>
 
-	<a
-		href={url}
-		class="text-s min-w-32 cursor-pointer rounded border border-emerald-400 px-4 py-1.5 text-center text-sm text-emerald-400 transition-colors hover:bg-cyan-400/10"
-	>
-		{linkText}
-	</a>
+	<Link
+		label={linkText}
+		{url}
+		ariaLabel={linkAriaLabel}
+		linkButton={true}
+		secondaryStyles={true}
+	/>
 </div>
