@@ -88,7 +88,7 @@
 
 			<div class="flex w-full items-center justify-center md:justify-end">
 				<button
-					class="text-s min-w-32 cursor-pointer rounded border border-cyan-400 p-2 font-semibold text-gray-300 hover:animate-pulse disabled:opacity-50"
+					class="text-s min-w-32 cursor-pointer rounded border border-cyan-400 p-2 font-semibold text-cyan-400 hover:animate-pulse disabled:opacity-50"
 					type="submit"
 					disabled={success || !inputsHaveData}
 					aria-label="Submit contact form">Submit</button
