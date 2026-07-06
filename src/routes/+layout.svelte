@@ -41,7 +41,7 @@
 		<a
 			href="/"
 			aria-label="Brady Bridges — home"
-			class="flex flex-col gap-0.5 border-l-2 border-cyan-400 pl-3 transition-opacity hover:opacity-75"
+			class="flex flex-col gap-0.5 lg:border-l-2 lg:border-cyan-400 pl-3 transition-opacity hover:opacity-75 text-center lg:text-left"
 		>
 			<span class="text-sm font-bold uppercase tracking-wider text-white">Brady Bridges</span>
 			<span class="text-xs uppercase tracking-[0.2em] text-cyan-400">Frontend Engineer</span>

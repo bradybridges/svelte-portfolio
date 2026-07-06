@@ -19,14 +19,9 @@
 			<Heading level={1} classes="text-rose-400">
 				WARNING: You have been the subject of a cruel joke!
 			</Heading>
-
-			<p class="text-xs">
-				This is due to you already being on this website when clicking the view live
-				application link on the previous page.
-			</p>
 		</div>
 
-		<p>
+		<p class="text-lg">
 			At BB Dev&trade; we strive to provide our users with the best application possible. We
 			apologize for any inconvenience, or lack of amusement, that this may have caused you. Our engineering team is
 			investigating the issue and expects to have a resolution soon. Some may consider this a

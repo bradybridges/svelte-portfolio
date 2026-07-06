@@ -3,6 +3,7 @@
 	import { projects } from '$lib/projects';
 	import Heading from './Heading.svelte';
 	import Image from './Image.svelte';
+	import Link from './Link.svelte';
 
 	const positionClass: Record<string, string> = {
 		top: 'object-top',
@@ -20,8 +21,6 @@
 	].join(' ')}
 
 	{@const projectPageUrl = resolve(`/projects/${project.slug}`)}
-	{@const primaryUrl =
-		project.url.includes('gotcha') && project.githubUrl ? projectPageUrl : project.url}
 
 	{#if !project.hidden}
 		<div
@@ -29,12 +28,9 @@
 		>
 			<div class="relative">
 				<a
-					href={primaryUrl}
+					href={projectPageUrl}
 					class="mb-2 border-b border-b-emerald-400 pb-4"
-					target={!project.url.includes('gotcha') ? "_blank" : ""}
-					aria-label="Visit {project.name} {project.url.includes('github')
-						? 'Github repository'
-						: 'live site'}"
+					aria-label="Read more about {project.name} project"
 				>
 					<Image
 						publicId={project.image}
@@ -73,7 +69,7 @@
 			<div class="flex h-full flex-col items-start gap-4 p-4">
 				<a
 					class="w-full"
-					href={primaryUrl}
+					href={project.url}
 					target="_blank"
 					aria-label={`Visit ${project.name} page`}
 				>
@@ -94,13 +90,7 @@
 				</div>
 
 				<div class="mt-auto flex w-full justify-center">
-					<a
-						href={projectPageUrl}
-						aria-label="Read more about {project.name}"
-						class="text-s mt-6 min-w-32 cursor-pointer rounded border border-cyan-400 px-4 py-1.5 text-center text-sm text-cyan-400 transition-colors hover:bg-cyan-400/10"
-					>
-						Read More
-					</a>
+					<Link classes="mt-6" url={projectPageUrl} label="Read More" ariaLabel="Read more about {project.name}" linkButton={true} />
 				</div>
 			</div>
 		</div>
