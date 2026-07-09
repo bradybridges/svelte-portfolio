@@ -50,6 +50,12 @@
 		font-weight: 600;
 		letter-spacing: 0.05em;
 		white-space: nowrap;
+		color: rgb(5, 150, 105);
+		background: rgba(5, 150, 105, 0.1);
+		border: 1px solid rgba(5, 150, 105, 0.5);
+	}
+
+	:global(.dark) .badge {
 		color: rgb(52, 211, 153);
 		background: rgba(52, 211, 153, 0.12);
 		border: 1px solid rgba(52, 211, 153, 0.8);

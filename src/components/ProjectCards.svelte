@@ -24,7 +24,7 @@
 
 	{#if !project.hidden}
 		<div
-			class="flex h-auto basis-full flex-col overflow-hidden rounded-xl border border-cyan-400/50 bg-gray-900 md:basis-[calc(50%-24px)] lg:basis-[calc(33%-24px)]"
+			class="flex h-auto basis-full flex-col overflow-hidden rounded-xl border border-cyan-200 dark:border-cyan-400/50 bg-white dark:bg-gray-900 shadow-sm shadow-gray-200 dark:shadow-none md:basis-[calc(50%-24px)] lg:basis-[calc(33%-24px)]"
 		>
 			<div class="relative">
 				<a
@@ -73,7 +73,7 @@
 					target="_blank"
 					aria-label={`Visit ${project.name} page`}
 				>
-					<Heading level={3} classes="mb-2 text-emerald-400">{project.name}</Heading>
+					<Heading level={3} classes="mb-2 text-emerald-600 dark:text-emerald-400">{project.name}</Heading>
 					<p class="text-s line-clamp-5">{project.description}</p>
 				</a>
 
@@ -82,7 +82,7 @@
 					<div class="flex flex-wrap gap-2">
 						{#each project.badges as badge (badge)}
 							<span
-								class="text-s rounded-full border border-gray-500 bg-gray-800 px-3"
+								class="text-s rounded-full border border-gray-200 dark:border-gray-500 bg-gray-100 dark:bg-gray-800 px-3"
 								>{badge}</span
 							>
 						{/each}

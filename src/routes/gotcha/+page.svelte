@@ -32,7 +32,7 @@
 				showIcon={false}
 				target={false}
 				label=" Status Page "
-				classes="text-cyan-400 border-b border-b-cyan-400"
+				classes="text-cyan-600 dark:text-cyan-400 border-b border-b-cyan-600 dark:border-b-cyan-400"
 			/>for the latest information regarding the issue.
 		</p>
 	</div>

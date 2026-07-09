@@ -14,7 +14,7 @@
 
 <div
 	class={[
-		'flex flex-col flex-nowrap items-center justify-between gap-8 rounded-xl border border-emerald-400/30 bg-gray-900 p-4 text-center md:flex-row lg:text-left',
+		'flex flex-col flex-nowrap items-center justify-between gap-8 rounded-xl border border-emerald-200 dark:border-emerald-400/30 bg-emerald-50 dark:bg-gray-900 p-4 text-center md:flex-row lg:text-left',
 		classes
 	]}
 >

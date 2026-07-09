@@ -12,5 +12,5 @@ body.dark {
 }
 
 body:not(.dark) {
-	background: #fff;
+	background: var(--color-gray-100);
 }

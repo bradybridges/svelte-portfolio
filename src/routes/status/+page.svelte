@@ -22,7 +22,7 @@
 
 		<div class="flex flex-col gap-8">
 			<Heading level={2}>
-				<span class="text-emerald-400">{currentDate}:</span> AWS outage impacting job prospects
+				<span class="text-emerald-600 dark:text-emerald-400">{currentDate}:</span> AWS outage impacting job prospects
 			</Heading>
 
 			<ul class="flex list-disc flex-col gap-4 px-4">

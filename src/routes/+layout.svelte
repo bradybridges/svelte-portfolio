@@ -55,7 +55,7 @@
 			class="flex flex-col gap-0.5 pl-3 text-center transition-opacity hover:opacity-75 lg:border-l-2 lg:border-white lg:dark:border-cyan-400 lg:text-left"
 		>
 			<span class="text-sm font-bold tracking-wider dark:text-white uppercase">Brady Bridges</span>
-			<span class="text-xs tracking-[0.2em] dark:text-cyan-400 uppercase">Frontend Engineer</span>
+			<span class="text-xs tracking-[0.2em] text-gray-800 dark:text-cyan-400 uppercase">Frontend Engineer</span>
 		</a>
 
 		<div class="flex flex-nowrap gap-4">
@@ -122,7 +122,7 @@
 		{@render children()}
 	</main>
 
-	<footer class="flex justify-center border-t border-t-cyan-400 p-4">
+	<footer class="flex justify-center border-t border-t-gray-200 dark:border-t-cyan-400 p-4">
 		<div class="flex items-center justify-center gap-4">
 			<a
 				href="https://github.com/bradybridges"

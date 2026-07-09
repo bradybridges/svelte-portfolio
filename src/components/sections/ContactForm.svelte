@@ -41,9 +41,9 @@
 
 <Section id="contact">
 	<div
-		class="flex flex-col items-center rounded-xl border border-cyan-400/50 bg-gray-900 p-8 shadow-lg shadow-cyan-400/33"
+		class="flex flex-col items-center rounded-xl border border-cyan-200 dark:border-cyan-400/50 bg-white dark:bg-gray-900 p-8 shadow-md shadow-gray-200 dark:shadow-lg dark:shadow-cyan-400/33"
 	>
-		<Heading level={2} classes="mb-8 text-3xl text-cyan-400">Get In Touch</Heading>
+		<Heading level={2} classes="mb-8 text-3xl text-cyan-600 dark:text-cyan-400">Get In Touch</Heading>
 
 		{#if success}
 			<p class="text-cyan-400">Thanks for reaching out!</p>
@@ -59,7 +59,7 @@
 				<input
 					type="text"
 					name="name"
-					class="min-w-full rounded border border-white bg-white p-4 text-xs text-gray-900 md:min-w-80"
+					class="min-w-full rounded border border-gray-300 dark:border-white bg-white p-4 text-xs text-gray-900 md:min-w-80"
 					bind:value={name}
 					required
 				/>
@@ -70,7 +70,7 @@
 				<input
 					type="email"
 					name="email"
-					class="min-w-full rounded border border-white bg-white p-4 text-xs text-gray-900 md:min-w-80"
+					class="min-w-full rounded border border-gray-300 dark:border-white bg-white p-4 text-xs text-gray-900 md:min-w-80"
 					bind:value={email}
 					required
 				/>
@@ -79,7 +79,7 @@
 			<label class="flex w-full flex-col items-start justify-center gap-2">
 				Message
 				<textarea
-					class="m:min-w-xl min-h-80 min-w-full rounded border border-white bg-white p-4 text-xs text-gray-900"
+					class="m:min-w-xl min-h-80 min-w-full rounded border border-gray-300 dark:border-white bg-white p-4 text-xs text-gray-900"
 					name="message"
 					bind:value={message}
 					required
@@ -88,7 +88,7 @@
 
 			<div class="flex w-full items-center justify-center md:justify-end">
 				<button
-					class="text-s min-w-32 cursor-pointer rounded border border-cyan-400 p-2 font-semibold text-cyan-400 hover:animate-pulse disabled:opacity-50"
+					class="text-s min-w-32 cursor-pointer rounded border border-cyan-600 dark:border-cyan-400 bg-cyan-600 dark:bg-transparent p-2 font-semibold text-white dark:text-cyan-400 hover:bg-cyan-700 dark:hover:bg-transparent dark:hover:animate-pulse disabled:opacity-50"
 					type="submit"
 					disabled={success || !inputsHaveData}
 					aria-label="Submit contact form">Submit</button
