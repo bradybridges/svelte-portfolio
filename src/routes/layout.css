@@ -1,7 +1,16 @@
 @plugin '@tailwindcss/forms';
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 html {
-	background: var(--color-gray-950);
 	scroll-behavior: smooth;
+}
+
+body.dark {
+	background: var(--color-gray-950);
+}
+
+body:not(.dark) {
+	background: #fff;
 }

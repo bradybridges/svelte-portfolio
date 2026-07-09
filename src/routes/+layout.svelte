@@ -22,6 +22,17 @@
 	}
 
 	let showModeNotification = $state(false);
+	let mode: 'dark' | 'light' = $state('light');
+
+	$effect(() => {
+		const body = document.body;
+
+		if (mode === 'light' && body.classList.contains('dark')) {
+			body.classList.remove('dark');
+		} else if (mode === 'dark' && !body.classList.contains('dark')) {
+			body.classList.add('dark');
+		}
+	});
 </script>
 
 <svelte:head>
@@ -30,10 +41,10 @@
 
 <svelte:window onscroll={onScroll} />
 
-<div class="text-gray-300">
+<div class="text-gray-950 dark:text-gray-300">
 	<header
 		class={[
-			'sticky top-0 z-10 flex flex-col items-center justify-between gap-6 border-b border-b-cyan-400 bg-gray-950/95 p-4 transition-transform duration-300 md:flex-row md:gap-0',
+			'sticky top-0 z-10 flex flex-col items-center justify-between gap-6 border-b border-b-gray-950 dark:border-b-cyan-400 bg-emerald-400/95 dark:bg-gray-950/95 p-4 transition-transform duration-300 md:flex-row md:gap-0',
 			hidden && '-translate-y-full'
 		]}
 		class:header-hidden={hidden}
@@ -41,10 +52,10 @@
 		<a
 			href="/"
 			aria-label="Brady Bridges — home"
-			class="flex flex-col gap-0.5 lg:border-l-2 lg:border-cyan-400 pl-3 transition-opacity hover:opacity-75 text-center lg:text-left"
+			class="flex flex-col gap-0.5 pl-3 text-center transition-opacity hover:opacity-75 lg:border-l-2 lg:border-white lg:dark:border-cyan-400 lg:text-left"
 		>
-			<span class="text-sm font-bold uppercase tracking-wider text-white">Brady Bridges</span>
-			<span class="text-xs uppercase tracking-[0.2em] text-cyan-400">Frontend Engineer</span>
+			<span class="text-sm font-bold tracking-wider dark:text-white uppercase">Brady Bridges</span>
+			<span class="text-xs tracking-[0.2em] dark:text-cyan-400 uppercase">Frontend Engineer</span>
 		</a>
 
 		<div class="flex flex-nowrap gap-4">
@@ -62,13 +73,23 @@
 				{/if}
 			</nav>
 
-			<button
-				class="absolute top-4 right-4 cursor-pointer md:static"
-				onclick={() => (showModeNotification = true)}
-				aria-label="Toggle dark mode"
-			>
-				<Icon icon="circum:dark" height="24" />
-			</button>
+			{#if mode === 'dark'}
+				<button
+					class="absolute top-4 right-4 cursor-pointer md:static"
+					onclick={() => (showModeNotification = true)}
+					aria-label="Toggle light mode"
+				>
+					<Icon icon="circum:dark" height="24" />
+				</button>
+			{:else}
+				<button
+					class="absolute top-4 right-4 cursor-pointer md:static"
+					onclick={() => (mode = 'dark')}
+					aria-label="Toggle dark mode"
+				>
+					<Icon icon="circum:light" height="24" />
+				</button>
+			{/if}
 		</div>
 	</header>
 
@@ -86,7 +107,10 @@
 					</p>
 					<button
 						class="mt-6 cursor-pointer rounded border border-cyan-400 px-4 py-1.5 text-sm text-cyan-400 transition-colors hover:bg-cyan-400/10"
-						onclick={() => (showModeNotification = false)}
+						onclick={() => {
+							showModeNotification = false;
+							mode = 'light';
+						}}
 						aria-label="Close dialog"
 					>
 						Acknowledge Mistake
