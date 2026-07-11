@@ -117,7 +117,7 @@
 						<Icon icon="circum:light" height="24" />
 					</Heading>
 
-					<p class="text-gray-300">Enabling light mode may sear your retinas.</p>
+					<p class="text-gray-300">Usage of light mode is known to sear retinas. Please consult a physician before using light mode.</p>
 
 					<button
 						class="cursor-pointer rounded border border-rose-400 px-4 py-1.5 text-sm text-rose-400 transition-colors hover:bg-rose-400/10"
