@@ -9,7 +9,7 @@
 	<title>Brady Bridges | Status</title>
 	<meta
 		name="description"
-		content="Status page for Brady Bridges' portfolio site — tracking all critical incidents with the appropriate level of engineering rigor."
+		content="Status page for Brady Bridges' portfolio site - tracking all critical incidents with the appropriate level of engineering rigor."
 	/>
 	<meta name="robots" content="noindex" />
 </svelte:head>
