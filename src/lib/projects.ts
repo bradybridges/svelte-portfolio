@@ -1,3 +1,5 @@
+import { resolve } from "$app/paths";
+
 type ProjectType = {
 	name: string;
 	description: string;
@@ -44,7 +46,7 @@ export const projects: ProjectType[] = [
 			"I've been hearing more and more about SvelteKit and have wanted to take it for a spin. I have also been putting off making a portfolio site for several years. I figured, what better time than now to make one? As a developer who works with React primarily, I find it valuable to stay up to speed with other modern frameworks to see how common patterns like reactivity, routing, SSR, state and side-effects are handled. In order to know what the best tool for a job is, you have to use different tools to gain expertise and insight into their practical applications. I had fun with this project, as you may find, and will definitely be adding Svelte to toolbox. Throughout this project, I found Svelte to be a great option with several advantageous qualities when stacked up against React.",
 		technical:
 			"The project is built on SvelteKit with Svelte 5 runes mode enforced project-wide, which means every reactive value is explicit and the component model is predictable. TailwindCSS v4 is configured through the Vite plugin rather than a config file, which keeps the toolchain lean. The project detail pages are driven by a single static TypeScript array in `src/lib/projects.ts`: SvelteKit's file-based routing resolves each slug at build time, and the server load function throws a 404 for any slug that doesn't match. The contact form is handled by a SvelteKit form action on the same route, keeping the form POST behavior native and progressively enhanced. Images are hosted on Cloudinary and referenced through a small utility that constructs URLs from public IDs, which means swapping delivery settings or transformations is a one-line change. In the future I may configure a CMS for content and add blogs, but for now static files are serving their purpose.",
-		url: '/gotcha',
+		url: resolve('/projects/portfolio'),
 		githubUrl: 'https://github.com/bradybridges/svelte-portfolio',
 		slug: 'portfolio',
 		image: 'portfolio',
