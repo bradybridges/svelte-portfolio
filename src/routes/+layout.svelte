@@ -1,10 +1,13 @@
 <script lang="ts">
 	import './layout.css';
-	import favicon from '../lib/assets/favicon.svg';
-	import Link from '../components/Link.svelte';
-	import Icon from '@iconify/svelte';
+
 	import { afterNavigate } from '$app/navigation';
 	import { page } from '$app/state';
+	import favicon from '../lib/assets/favicon.svg';
+
+	import Link from '../components/Link.svelte';
+	import Icon from '@iconify/svelte';
+	import Heading from '../components/Heading.svelte';
 
 	let { children } = $props();
 
@@ -22,7 +25,7 @@
 	}
 
 	let showModeNotification = $state(false);
-	let mode: 'dark' | 'light' = $state('light');
+	let mode: 'dark' | 'light' = $state('dark');
 
 	$effect(() => {
 		const body = document.body;
@@ -44,21 +47,25 @@
 <div class="text-gray-950 dark:text-gray-300">
 	<header
 		class={[
-			'sticky top-0 z-10 flex flex-col items-center justify-between gap-6 border-b border-b-gray-950 dark:border-b-cyan-400 bg-emerald-400/95 dark:bg-gray-950/95 p-4 transition-transform duration-300 md:flex-row md:gap-0',
+			'sticky top-0 z-20 flex flex-col items-center justify-between gap-6 border-b border-b-gray-950 bg-emerald-400/95 p-4 transition-transform duration-300 md:flex-row md:gap-0 dark:border-b-cyan-400 dark:bg-gray-950/95',
 			hidden && '-translate-y-full'
 		]}
 		class:header-hidden={hidden}
 	>
 		<a
 			href="/"
-			aria-label="Brady Bridges — home"
-			class="flex flex-col gap-0.5 pl-3 text-center transition-opacity hover:opacity-75 lg:border-l-2 lg:border-white lg:dark:border-cyan-400 lg:text-left"
+			aria-label="Brady Bridges - home"
+			class="flex flex-col gap-0.5 pl-3 text-center transition-opacity hover:opacity-75 lg:border-l-2 lg:text-left lg:dark:border-cyan-400"
 		>
-			<span class="text-sm font-bold tracking-wider dark:text-white uppercase">Brady Bridges</span>
-			<span class="text-xs tracking-[0.2em] text-gray-800 dark:text-cyan-400 uppercase">Frontend Engineer</span>
+			<span class="text-sm font-bold tracking-wider uppercase dark:text-white"
+				>Brady Bridges</span
+			>
+			<span class="text-xs tracking-[0.2em] text-gray-800 uppercase dark:text-cyan-400"
+				>Frontend Engineer</span
+			>
 		</a>
 
-		<div class="flex flex-nowrap gap-4">
+		<div class="flex flex-nowrap items-center gap-4">
 			<nav class="flex gap-3 md:mr-4">
 				{#if page.url.pathname !== '/'}
 					<Link url="/" label="Go to home page" ariaLabel="Navigate to home page" />
@@ -75,11 +82,11 @@
 
 			{#if mode === 'dark'}
 				<button
-					class="absolute top-4 right-4 cursor-pointer md:static"
+					class="absolute top-4 right-4 cursor-pointer transition-colors md:static dark:hover:text-cyan-400"
 					onclick={() => (showModeNotification = true)}
 					aria-label="Toggle light mode"
 				>
-					<Icon icon="circum:dark" height="24" />
+					<Icon icon="circum:light" height="32" />
 				</button>
 			{:else}
 				<button
@@ -87,7 +94,7 @@
 					onclick={() => (mode = 'dark')}
 					aria-label="Toggle dark mode"
 				>
-					<Icon icon="circum:light" height="24" />
+					<Icon icon="circum:dark" height="24" />
 				</button>
 			{/if}
 		</div>
@@ -99,21 +106,28 @@
 				class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
 			>
 				<div
-					class="mx-4 max-w-sm rounded border border-cyan-400 bg-gray-950 p-6 text-center shadow-lg shadow-cyan-400/20"
+					class="mx-4 flex max-w-md flex-col items-center gap-8 rounded border border-cyan-400 bg-gray-950 p-6 text-center shadow-lg shadow-cyan-400/20"
 				>
-					<p class="text-gray-300">
-						The author of this site insists on using dark mode. Clicking the light-mode
-						toggle was likely a mistake on your part.
-					</p>
+					<Heading
+						level={2}
+						classes="text-rose-400 flex flex-nowrap justify-center items-center gap-4"
+					>
+						<Icon icon="circum:light" height="24" />
+						Warning
+						<Icon icon="circum:light" height="24" />
+					</Heading>
+
+					<p class="text-gray-300">Enabling light mode may sear your retinas.</p>
+
 					<button
-						class="mt-6 cursor-pointer rounded border border-cyan-400 px-4 py-1.5 text-sm text-cyan-400 transition-colors hover:bg-cyan-400/10"
+						class="cursor-pointer rounded border border-rose-400 px-4 py-1.5 text-sm text-rose-400 transition-colors hover:bg-rose-400/10"
 						onclick={() => {
 							showModeNotification = false;
 							mode = 'light';
 						}}
-						aria-label="Close dialog"
+						aria-label="Enable light mode"
 					>
-						Acknowledge Mistake
+						Enable Light Mode
 					</button>
 				</div>
 			</div>
@@ -122,7 +136,7 @@
 		{@render children()}
 	</main>
 
-	<footer class="flex justify-center border-t border-t-gray-200 dark:border-t-cyan-400 p-4">
+	<footer class="flex justify-center border-t border-t-gray-200 p-4 dark:border-t-cyan-400">
 		<div class="flex items-center justify-center gap-4">
 			<a
 				href="https://github.com/bradybridges"
