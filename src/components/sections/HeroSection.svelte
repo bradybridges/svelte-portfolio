@@ -52,7 +52,7 @@
 				/>
 			</div>
 
-			<div class="flex w-full flex-col items-center justify-center gap-2 px-2 py-8 lg:py-0">
+			<div class="flex w-full flex-col items-center justify-center gap-8 px-2 py-8 lg:py-0">
 				<Heading level={2} classes="text-emerald-600 dark:text-emerald-400">Hi, I'm Brady!</Heading>
 
 				<p class="text-center text-lg lg:text-left lg:pl-4">
