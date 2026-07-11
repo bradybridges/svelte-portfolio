@@ -35,12 +35,14 @@
 
 {#snippet details(classes: string)}
 	<div class={['lg:basis-1/4', classes]}>
-		<div class="mb-4 rounded border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-4">
+		<div
+			class="mb-4 rounded border border-gray-200 bg-white p-4 dark:border-gray-700 dark:bg-gray-900"
+		>
 			<Heading level={3} classes="mb-4 text-xl">Links</Heading>
 
 			{#if hasLinks}
 				<div class="flex flex-col gap-2">
-					{#if data.project.url && data.project.url !== data.project.githubUrl}
+					{#if data.project.url && data.project.url !== data.project.githubUrl && !data.project.url.startsWith('/')}
 						<Link
 							url={data.project.url}
 							ariaLabel={`View ${data.project.name} live application`}
@@ -53,8 +55,8 @@
 					{#if data.project.githubUrl}
 						<Link
 							url={data.project.githubUrl}
-							ariaLabel="Visit Github repository page"
-							label="Github Repository"
+							ariaLabel={`Visit ${data.project.name} GitHub page`}
+							label="GitHub Repository"
 							target="_blank"
 							showIcon={true}
 						/>
@@ -73,12 +75,15 @@
 			{/if}
 		</div>
 
-		<div class="rounded border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-4">
+		<div
+			class="rounded border border-gray-200 bg-white p-4 dark:border-gray-700 dark:bg-gray-900"
+		>
 			<Heading level={3} classes="mb-4 text-xl">Built With</Heading>
 
 			<div class="flex flex-wrap gap-2">
 				{#each data.project.badges as badge (badge)}
-					<span class="text-s rounded-full border border-gray-300 dark:border-cyan-400/50 bg-gray-100 dark:bg-gray-800 px-3"
+					<span
+						class="text-s rounded-full border border-gray-300 bg-gray-100 px-3 dark:border-cyan-400/50 dark:bg-gray-800"
 						>{badge}</span
 					>
 				{/each}
@@ -89,11 +94,15 @@
 
 <Section>
 	<div>
-		<Heading level={1} classes="mb-8 text-emerald-600 dark:text-emerald-400">{data.project.name}</Heading>
+		<Heading level={1} classes="mb-8 text-emerald-600 dark:text-emerald-400"
+			>{data.project.name}</Heading
+		>
 
 		<div class="flex flex-col gap-4 lg:flex-row">
 			<div class="lg:basis-3/4">
-				<div class="mb-4 overflow-hidden rounded border border-gray-200 dark:border-gray-700 lg:mb-16">
+				<div
+					class="mb-4 overflow-hidden rounded border border-gray-200 lg:mb-16 dark:border-gray-700"
+				>
 					<Image
 						publicId={data.project.image}
 						alt="{data.project.name} project screenshot"
@@ -108,20 +117,25 @@
 				{@render details('lg:hidden')}
 
 				<div class="my-12">
-					<Heading level={2} classes="mb-4 text-cyan-600 dark:text-cyan-400">Description</Heading>
+					<Heading level={2} classes="mb-4 text-cyan-600 dark:text-cyan-400"
+						>Description</Heading
+					>
 					<p class="py-4 text-lg">{data.project.description}</p>
 				</div>
 
 				{#if data.project.motivation}
 					<div class="my-12">
-						<Heading level={2} classes="mb-4 text-cyan-600 dark:text-cyan-400">Motivation</Heading>
+						<Heading level={2} classes="mb-4 text-cyan-600 dark:text-cyan-400"
+							>Motivation</Heading
+						>
 						<p class="py-4 text-lg">{data.project.motivation}</p>
 					</div>
 				{/if}
 
 				{#if data.project.technical}
 					<div class="my-12">
-						<Heading level={2} classes="mb-4 text-cyan-600 dark:text-cyan-400">Technical Challenge</Heading
+						<Heading level={2} classes="mb-4 text-cyan-600 dark:text-cyan-400"
+							>Technical Challenge</Heading
 						>
 						<p class="py-4 text-lg">{data.project.technical}</p>
 					</div>
