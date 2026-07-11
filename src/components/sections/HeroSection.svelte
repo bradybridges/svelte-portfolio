@@ -39,7 +39,7 @@
 </script>
 
 <Section>
-	<div class="rounded-xl border border-cyan-400/10 bg-gray-900 p-4 shadow-lg shadow-cyan-400/33">
+	<div class="rounded-xl border border-cyan-200 dark:border-cyan-400/10 bg-white dark:bg-gray-900 p-4 shadow-md shadow-gray-200 dark:shadow-lg dark:shadow-cyan-400/33">
 		<div class="hero-container gap-4 lg:grid lg:grid-cols-[1fr_2fr]">
 			<div class="aspect-3/4 overflow-hidden rounded-xl">
 				<Image
@@ -52,8 +52,8 @@
 				/>
 			</div>
 
-			<div class="flex w-full flex-col items-center justify-center gap-2 px-2 py-8 lg:py-0">
-				<Heading level={2} classes="text-emerald-400">Hi, I'm Brady!</Heading>
+			<div class="flex w-full flex-col items-center justify-center gap-8 px-2 py-8 lg:py-0">
+				<Heading level={2} classes="text-emerald-600 dark:text-emerald-400">Hi, I'm Brady!</Heading>
 
 				<p class="text-center text-lg lg:text-left lg:pl-4">
 					Senior Frontend Engineer with 6+ years of experience building scalable,

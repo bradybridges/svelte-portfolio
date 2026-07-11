@@ -10,7 +10,7 @@
 	<title>Brady Bridges | Portfolio</title>
 	<meta
 		name="description"
-		content="Brady Bridges — Senior Frontend Engineer with 6+ years building scalable, high-performance web apps with React and TypeScript. Explore projects, experience, and get in touch."
+		content="Brady Bridges - Senior Frontend Engineer with 6+ years building scalable, high-performance web apps with React and TypeScript. Explore projects, experience, and get in touch."
 	/>
 </svelte:head>
 

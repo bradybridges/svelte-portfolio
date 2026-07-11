@@ -24,7 +24,7 @@
 </script>
 
 {#if !linkButton}
-	{@const designClasses = secondaryStyles ? 'hover:text-emerald-400' : 'hover:text-cyan-400'}
+	{@const designClasses = secondaryStyles ? 'hover:text-emerald-600 dark:hover:text-emerald-400' : 'hover:text-cyan-600 dark:hover:text-cyan-400'}
 
 	<a
 		href={url}
@@ -40,8 +40,8 @@
 	</a>
 {:else}
 	{@const designClasses = secondaryStyles
-		? 'border-emerald-400 text-emerald-400 hover:bg-emerald-400/10'
-		: 'border-cyan-400 text-cyan-400 hover:bg-cyan-400/10'}
+		? 'bg-emerald-600 dark:bg-transparent border-emerald-600 dark:border-emerald-400 text-white dark:text-emerald-400 hover:bg-emerald-700 dark:hover:bg-emerald-400/10'
+		: 'bg-cyan-600 dark:bg-transparent border-cyan-600 dark:border-cyan-400 text-white dark:text-cyan-400 hover:bg-cyan-700 dark:hover:bg-cyan-400/10'}
 
 	<a
 		href={url}

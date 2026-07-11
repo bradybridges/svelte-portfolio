@@ -7,10 +7,10 @@
 
 <Section id="experience">
 	<div class="flex flex-col gap-8">
-		<Heading level={2} classes="text-cyan-400">Professional Experience</Heading>
+		<Heading level={2} classes="text-cyan-600 dark:text-cyan-400">Professional Experience</Heading>
 
 		{#each roles as role (role.title)}
-			<div class="rounded-xl border border-cyan-400/50 bg-gray-900 p-4">
+			<div class="rounded-xl border border-cyan-200 dark:border-cyan-400/50 bg-white dark:bg-gray-900 p-4 shadow-sm shadow-gray-200 dark:shadow-none">
 				<div class="role-card relative flex flex-col items-start justify-center gap-2 pl-8">
 					<span class="absolute top-0 left-0 h-3 w-3 rounded-full bg-cyan-400"></span>
 					<span class="absolute bottom-0 left-0 h-3 w-3 rounded-full bg-cyan-400"></span>
@@ -19,7 +19,7 @@
 						<div
 							class="flex w-full flex-col items-start justify-between md:flex-row md:items-center"
 						>
-							<div class="text-xl font-bold text-cyan-400">{role.title}</div>
+							<div class="text-xl font-bold text-cyan-600 dark:text-cyan-400">{role.title}</div>
 							<div>
 								<div class="mb-1 text-left font-semibold md:text-right">
 									{#if role.companyUrl}

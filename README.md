@@ -33,8 +33,8 @@ PUBLIC_CLOUDINARY_CLOUD_NAME=your_cloud_name
 PUBLIC_WEB3FORMS_ACCESS_KEY=your_access_key
 ```
 
-- **Cloudinary** — sign up at [cloudinary.com](https://cloudinary.com/) and use your cloud name. Project images are referenced by public ID in `src/lib/projects.ts`.
-- **Web3Forms** — sign up at [web3forms.com](https://web3forms.com/) to get a free access key for the contact form.
+- **Cloudinary** - sign up at [cloudinary.com](https://cloudinary.com/) and use your cloud name. Project images are referenced by public ID in `src/lib/projects.ts`.
+- **Web3Forms** - sign up at [web3forms.com](https://web3forms.com/) to get a free access key for the contact form.
 
 ### Development
 
