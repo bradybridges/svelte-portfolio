@@ -9,12 +9,13 @@ type RolesType = {
 
 export const roles: RolesType[] = [
 	{
-		title: 'Frontend Engineer III',
+		title: 'Senior Front End Engineer',
 		company: 'Athos Commerce',
 		companyUrl: 'https://athoscommerce.com',
-		start: '5/1/25',
+		start: '12/1/23',
 		end: 'Current',
 		bullets: [
+			'Advise directors, sales, customer success, solution engineering, and backend teams on frontend feasibility using deep API/SDK expertise, followed by authoring scopes of work and technical documentation that guide engineering teams through execution',
 			'Architected reusable frontend components and shared UI patterns, reducing duplicated code and accelerating feature delivery across multiple projects',
 			'Improved frontend application performance through bundle optimization, lazy loading, and rendering improvements, resulting in faster page load times and improved user engagement',
 			'Led technical planning and execution for frontend initiatives, translating product requirements into scalable engineering solutions',
@@ -26,7 +27,7 @@ export const roles: RolesType[] = [
 		company: 'Athos Commerce',
 		companyUrl: 'https://athoscommerce.com',
 		start: '3/15/20',
-		end: '5/1/25',
+		end: '12/1/23',
 		bullets: [
 			'Led development of high-impact UI/UX features that increased revenue by 71.6% and improved user conversion rates by 3.3x',
 			'Built responsive, performant web applications using React, TypeScript, and modern frontend best practices',
