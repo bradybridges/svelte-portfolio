@@ -6,7 +6,7 @@
 </script>
 
 <Section id="projects" class="flex flex-col items-start gap-4">
-	<Heading level={2} classes="mb-2 text-cyan-600">Projects</Heading>
+	<Heading level={2} classes="text-cyan-600 dark:text-cyan-400">Projects</Heading>
 
 	<div class="w-full">
 		<div class="flex flex-wrap gap-8">
