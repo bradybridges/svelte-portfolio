@@ -1,5 +1,6 @@
 type RolesType = {
 	title: string;
+	currentRole: boolean
 	company: string;
 	start: string;
 	end: string;
@@ -10,6 +11,7 @@ type RolesType = {
 export const roles: RolesType[] = [
 	{
 		title: 'Senior Front End Engineer',
+		currentRole: true,
 		company: 'Athos Commerce',
 		companyUrl: 'https://athoscommerce.com',
 		start: '12/1/23',
@@ -24,6 +26,7 @@ export const roles: RolesType[] = [
 	},
 	{
 		title: 'Frontend Engineer',
+		currentRole: false,
 		company: 'Athos Commerce',
 		companyUrl: 'https://athoscommerce.com',
 		start: '3/15/20',
@@ -38,6 +41,7 @@ export const roles: RolesType[] = [
 	},
 	{
 		title: 'Software Engineer',
+		currentRole: false,
 		company: 'Zinnfinity',
 		companyUrl: 'https://zinnfinity.com',
 		start: '5/1/19',
