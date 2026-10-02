@@ -56,10 +56,10 @@
 				<Heading level={2} classes="text-emerald-600 dark:text-emerald-400">Hi, I'm Brady!</Heading>
 
 				<p class="text-center text-lg lg:text-left lg:pl-4">
-					Senior Frontend Engineer with 6+ years of experience building scalable,
+					Senior Front-End Engineer with 6+ years of experience building scalable,
 					high-performance web applications using React and TypeScript. Proven track
 					record of driving measurable business impact, including significant increases in
-					revenue and conversion rates. Skilled in frontend architecture, CI/CD
+					revenue and conversion rates. Skilled in front-end architecture, CI/CD
 					implementation, and test automation, with experience mentoring engineers and
 					leading technical initiatives.
 				</p>

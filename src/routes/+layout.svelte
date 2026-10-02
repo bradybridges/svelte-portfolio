@@ -61,7 +61,7 @@
 				>Brady Bridges</span
 			>
 			<span class="text-xs tracking-[0.2em] text-gray-800 uppercase dark:text-cyan-400"
-				>Frontend Engineer</span
+				>Front-End Engineer</span
 			>
 		</a>
 

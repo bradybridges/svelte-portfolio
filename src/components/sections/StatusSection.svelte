@@ -5,7 +5,7 @@
 
 	// Grab current role to display up-to-date info
 	const currentRole = roles.find((role) => role.currentRole);
-	const currentRoleTitle = currentRole?.title ?? 'Senior Front End Engineer';
+	const currentRoleTitle = currentRole?.title ?? 'Senior Front-End Engineer';
 	const currentRoleCompany = currentRole?.company ?? 'Athos Commerce';
 </script>
 
